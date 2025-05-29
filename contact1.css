@@ -1,0 +1,390 @@
+body {
+    margin: 0;
+    margin-top: 10px;
+    font-family: 'Arial', sans-serif;
+    background-color: #4e1320;
+    color: #ffffff;
+    display: flex;
+  }
+  .aboutme{
+    display: flex;
+    column-gap: 40px;
+    height: 74%;
+  }
+  
+  .container {
+    display: flex;
+    width: 100%;
+  }
+  
+  /* Sidebar*/
+  .sidebar {
+    width: 20%;
+    height: 100vh;
+    padding: 20px;
+    background-color: #14c0f1;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin-top: 10px;
+  }
+  
+  
+  .avatar {
+    width: 200px;
+    border-radius: 50%;
+  }
+  .contact{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-left: 35px;
+  }
+  
+  .contact img{
+    height: 30px;
+    width: 30px;
+    margin-top: -5px;
+  }
+  .contact p {
+    margin: 10px 0;
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+  }
+  .contact span, a {
+    color: #64ffda;
+    text-decoration: none;
+    word-break: break-word;
+  }
+
+  /* Navbar */
+  .content {
+    width: 75%;
+    padding: 20px;
+    margin-left: 22%;
+    margin-right: 3%;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #333;
+    background-color: #a41d35;
+    margin-top: -23px;
+    padding: 10px 0;
+  }
+  
+  .tabs a {
+    color: #64ffda;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+  .tabs a:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 4px;
+  }
+  
+  .tabs .active {
+    font-weight: bold;
+  }
+  
+  .about, .services {
+    margin-top: 20px;
+  }
+  
+  .service-card {
+    background-color: #14c0f1;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+  }
+  
+
+  /* Education */
+  
+  .education-container {
+    width: 40%;
+    background-color: #14c0f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+
+  
+  .education-wrapper{
+    margin-top: -15px;
+  }
+
+
+  /* FORM */
+  
+.form{
+    display: flex;
+    row-gap: 100px;
+}
+.form-image {
+    background-color: #ffffff;
+    background-color: rgb(176, 101, 101,0);
+    padding: 20px;
+}
+
+.form-image img {
+    width: 450px;
+    height: auto;
+    border-radius: 50%;
+    margin-top: 50px;
+
+}
+
+.form-area {
+    padding: 40px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 300px;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+}
+
+input[type="text"],
+input[type="email"] {
+    height: 40px;
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+button {
+    background-color: #00d6c4;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #00b8a8;
+}
+
+.sidebar-wrapper {
+    position: relative;
+    transform: none;
+    margin-top: 20px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-left: 35px;
+    text-align: left;
+}
+
+/* Mobile Menu Styles */
+.mobile-menu-button {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: #14c0f1;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #14c0f1;
+    z-index: 9999;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    overflow-x: hidden;
+}
+
+.mobile-nav.active {
+    right: 0;
+}
+
+.mobile-nav-header {
+    padding: 20px;
+    text-align: right;
+}
+
+.close-menu {
+    font-size: 24px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.mobile-nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.mobile-nav-links a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    .mobile-menu-button {
+        display: block !important;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    .tabs {
+        display: none;
+    }
+
+    /* Hide sidebar on mobile */
+    .sidebar {
+        display: none !important;
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    .content {
+        width: 100%;
+        margin: 0;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    /* Adjust form for mobile */
+    .form {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+
+    .form-image {
+        display: none;
+    }
+
+    .form-area {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    form {
+        width: 100%;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 15px;
+    }
+
+    label {
+        font-size: 1rem;
+        margin-bottom: 8px;
+        display: block;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .about {
+        padding: 0 15px;
+    }
+
+    .about h2 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .about p {
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+}
+
+/* Tablet Responsive */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .form {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .form-image {
+        width: 45%;
+    }
+
+    .form-area {
+        width: 45%;
+    }
+}

@@ -1,0 +1,423 @@
+body {
+    margin: 0;
+    margin-top: 10px;
+    font-family: 'Arial', sans-serif;
+    background-color: #4e1320;
+    color: #ffffff;
+    display: flex;
+  }
+
+.aboutme {
+    display: flex;
+    column-gap: 40px;
+    height: 74%;
+  }
+  
+  .container {
+    display: flex;
+    width: 100%;
+  }
+  
+  /* Sidebar*/
+  .sidebar {
+    width: 20%;
+    height: 100vh;
+    padding: 20px;
+    background-color: #14c0f1;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    margin-top: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .avatar {
+    width: 200px;
+    border-radius: 50%;
+  }
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-left: 35px;
+  }
+  
+.contact img {
+    height: 30px;
+    width: 30px;
+    margin-top: -5px;
+  }
+
+  .contact p {
+    margin: 10px 0;
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+  }
+
+  .contact span, a {
+    color: #64ffda;
+    text-decoration: none;
+    word-break: break-word;
+  }
+  
+  /* Nav bar*/
+  .content {
+    width: 75%;
+    padding: 20px;
+    margin-left: 22%;
+    margin-right: 3%;
+  }
+  
+  .tabs {
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #333;
+    background-color: #a41d35;
+    margin-top: -23px; 
+    padding: 10px 0;
+  }
+  
+  .tabs a {
+    color: #64ffda;
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+  
+.tabs a:hover {
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 4px;
+  }
+  
+  .about, .services {
+    margin-top: 20px;
+  }
+  
+/* Education & Experience Containers */
+.education-container, .experience-container {
+    background-color: #14c0f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+.education-container {
+    width: 40%;
+}
+
+.experience-container {
+    width: 50%;
+}
+
+  .timeline {
+    position: relative;
+    margin-left: 10px;
+    padding-left: 0px;
+    border-left: 2px solid #242624;
+  }
+  
+  .timeline-item {
+    margin-bottom: 35px;
+    position: relative;
+  }
+  
+  .timeline-dot {
+    width: 20px;
+    height: 20px;
+    background-color: #a41d35;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    transform: translate(-50%, -50%);
+  }
+
+  .timeline-content {
+    margin-left: 20px;
+  }
+  
+  .timeline-content h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #ffffff;
+  }
+  
+  .timeline-content .date {
+    color: #64ffda;
+    font-size: 14px;
+    margin: 5px 0;
+  }
+  
+  .timeline-content p {
+    margin: 0;
+    font-size: 16px;
+    color: #cccccc;
+  }
+
+.education-wrapper, .experience-wrapper {
+    margin-top: -15px;
+  }
+
+/* Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    .container {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    .mobile-menu-button {
+        display: block !important;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    .tabs {
+        display: none;
+    }
+
+    /* Show sidebar only on home page */
+    .home-page .sidebar {
+        display: block !important;
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin: 0;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    /* Hide sidebar on other pages */
+    .sidebar {
+        display: none !important;
+    }
+
+    .avatar {
+        width: 150px;
+    }
+
+    .contact {
+        margin-left: 0;
+        align-items: center;
+    }
+
+    .contact p {
+        justify-content: center;
+    }
+
+    .content {
+        width: 100%;
+        margin: 0;
+        padding: 10px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+
+    .aboutme {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        padding: 0 5px;
+    }
+
+    .education-container,
+    .experience-container {
+        width: 100%;
+        margin: 10px 0;
+        box-sizing: border-box;
+    }
+
+    .timeline-content {
+        margin-left: 15px;
+        width: calc(100% - 30px);
+        box-sizing: border-box;
+    }
+
+    .timeline-content h3 {
+        font-size: 16px;
+        word-wrap: break-word;
+    }
+
+    .timeline-content p {
+        font-size: 14px;
+        word-wrap: break-word;
+    }
+
+    .about {
+        padding: 0 5px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .about p {
+        font-size: 14px;
+        line-height: 1.6;
+        word-wrap: break-word;
+    }
+
+    .about h2 {
+        margin-left: 5px;
+    }
+}
+
+/* Small Mobile Devices */
+@media screen and (max-width: 480px) {
+    .sidebar h1 {
+        font-size: 24px;
+    }
+
+    .sidebar h4 {
+        font-size: 16px;
+    }
+
+    .contact img {
+        height: 24px;
+        width: 24px;
+    }
+
+    .contact p {
+        font-size: 14px;
+    }
+
+    .tabs {
+        padding: 5px 0;
+    }
+
+    .tabs a {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    .timeline-dot {
+        width: 16px;
+        height: 16px;
+    }
+  }
+
+/* Mobile Menu Styles */
+.mobile-menu-button {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 9999;
+    background-color: #14c0f1;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+.mobile-nav {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background-color: #14c0f1;
+    z-index: 9999;
+    transition: right 0.3s ease;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
+    overflow-x: hidden;
+}
+
+.mobile-nav.active {
+    right: 0;
+    overflow-x: hidden;
+}
+
+.mobile-nav-header {
+    padding: 20px;
+    text-align: right;
+}
+
+.close-menu {
+    font-size: 24px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.mobile-nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.mobile-nav-links a:hover {
+    background-color: rgba(255,255,255,0.1);
+}
+
+/* Update Mobile Responsive Design */
+@media screen and (max-width: 768px) {
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .mobile-nav {
+        display: block;
+    }
+
+    .tabs {
+        display: none;
+    }
+
+    /* Hide sidebar on mobile for all pages except home */
+    .sidebar {
+        display: none;
+    }
+
+    /* Show sidebar only on home page */
+    .home-page .sidebar {
+        display: block;
+        width: 100%;
+        height: auto;
+        position: relative;
+        margin-top: 0;
+        padding: 10px;
+    }
+
+    .content {
+        width: 90%;
+        margin-left: 0;
+    }
+}
+
+/* Fix desktop content alignment */
+.content {
+    width: 75%;
+    padding: 20px;
+    margin-left: 22%;
+    margin-right: 3%;
+}

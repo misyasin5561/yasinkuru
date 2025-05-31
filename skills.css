@@ -1,377 +1,565 @@
 body {
     margin: 0;
-    margin-top: 10px;
-    font-family: 'Arial', sans-serif;
-    background-color: #4e1320;
-    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font stack */
+    background-color: #3D0000; /* Darker, richer maroon */
+    color: #E0E0E0; /* Softer white for text */
     display: flex;
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
   }
-  .aboutme{
+
+.aboutme{
     display: flex;
     column-gap: 40px;
+    /* height: 74%; */ /* Let content define height or use min-height */
   }
   
   .container {
     display: flex;
     width: 100%;
+    max-width: 1200px; /* Add a max-width for larger screens */
+    margin: 0 auto; /* Center the container */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: add a subtle shadow to the container */
   }
   
-  /* Sidebar */
-  .sidebar {
-    width: 20%;
+  /* Sidebar*/
+.sidebar {
+    width: 250px; /* Fixed width for sidebar */
     height: 100vh;
-    padding: 20px;
-    background-color: #14c0f1;
+    padding: 30px 20px; /* Increased padding */
+    background-color: #005A8D; /* Deeper blue */
     text-align: center;
     position: fixed;
     left: 0;
     top: 0;
-    margin-top: 10px;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Subtle shadow */
+    display: flex; /* Use flexbox for internal alignment */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
   }
-  .sidebar-wrapper {
-    position: relative;
-    transform: none;
-    margin-top: 20px;
-  }
-  
-  .avatar {
-    width: 200px;
-    border-radius: 50%;
-  }
-  .contact {
+
+.sidebar-wrapper {
     display: flex;
     flex-direction: column;
-    row-gap: 10px;
-    margin-left: 35px;
-    text-align: left;
+    align-items: center;
+    width: 100%;
+}
+  
+.avatar {
+    width: 150px; /* Adjusted avatar size */
+    height: 150px; /* Ensure aspect ratio if image is not square */
+    border-radius: 50%;
+    margin-bottom: 20px; /* Added margin below avatar */
+  }
+
+.sidebar h1 {
+    color: #FFFFFF; /* Ensure heading color is white */
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 5px; /* Adjust spacing */
+}
+
+.sidebar h4 {
+    color: #ADD8E6; /* Lighter blue for subtitle */
+    font-size: 0.9em;
+    margin-bottom: 20px; /* Adjust spacing */
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px; /* Increased gap */
+    width: 100%; /* Take full width of sidebar for centering */
+    align-items: flex-start; /* Align items to the start (left) */
+    padding-left: 10px; /* Add some padding for icons and text */
   }
   
-  .contact img{
+.contact img {
     height: 30px;
     width: 30px;
     margin-top: -5px;
   }
+
   .contact p {
     margin: 10px 0;
     display: flex;
     column-gap: 15px;
     align-items: center;
   }
-  .contact span, a {
-    color: #64ffda;
+
+  .contact span, .contact a { /* Specificity for contact links */
+    color: #88FFFF; /* Lighter, more vibrant cyan */
     text-decoration: none;
     word-break: break-word;
   }
-
   
-  /* Navbar */
+  /* Content Area */
   .content {
-    width: 75%;
-    padding: 20px;
-    margin-left: 22%;
-    margin-right: 3%;
+    flex-grow: 1; /* Allow content to take remaining space */
+    padding: 30px; /* Increased padding */
+    margin-left: 250px; /* Account for fixed sidebar width */
+    background-color: #2A0000; /* Slightly lighter background for content area for contrast */
   }
   
+  /* Tabs Navigation */
   .tabs {
     display: flex;
-    justify-content: space-around;
-    border-bottom: 1px solid #333;
-    background-color: #a41d35;
-    margin-top: -23px;
+    justify-content: flex-start; /* Align tabs to the left */
+    border-bottom: 1px solid #2A0000; /* Darker border */
+    background-color: #7B0000; /* Muted maroon for tabs */
     padding: 10px 0;
+    margin-bottom: 20px; /* Add space below tabs */
   }
   
   .tabs a {
-    color: #64ffda;
+    color: #ADD8E6; /* Light blue for tab links */
     text-decoration: none;
     padding: 10px 15px;
     font-size: 16px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, color 0.3s; /* Added color transition */
   }
   
-  .tabs a:hover {
-    background-color: rgba(255,255,255,0.1);
+.tabs a:hover, .tabs a.active { /* Added .active state for tabs */
+    background-color: rgba(255,255,255,0.05); /* Softer hover */
+    color: #FFFFFF; /* White text on hover/active */
     border-radius: 4px;
   }
   
-  .tabs .active {
-    font-weight: bold;
-  }
-  
-  .about, .services {
+  /* General section styling (can replace .about, .services if structure is similar) */
+  .about, .services, .skills, .projects-section, .contact-section { /* Added more section classes */
     margin-top: 20px;
   }
   
-  .service-card {
-    background-color: #14c0f1;
-    padding: 15px;
-    margin: 10px 0;
-    border-radius: 5px;
+  /* Skills Page Specific Styles */
+  .skills-container, .certificates-container, .languages-container {
+    background-color: #0077B6; /* Coordinating blue from aboutme.css */
+    padding: 25px; /* Slightly more padding */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Slightly more pronounced shadow */
+    margin-bottom: 25px; /* Space between containers */
   }
 
-  /* Skills */
-  .skills-container {
-    width: 97%;
-    background-color: #14c0f1;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  .skills-container h2, .certificates-container h2, .languages-container h2 {
+    color: #FFFFFF; /* White headings for these sections */
+    margin-top: 0; /* Remove default top margin */
+    margin-bottom: 20px; /* Space below heading */
+    display: flex; /* For aligning icon and text */
+    align-items: center; /* Vertically align icon and text */
+  }
+
+  .skills-container h2 img, .certificates-container h2 img, .languages-container h2 img {
+    height: 30px; /* Adjusted icon size */
+    width: 30px;
+    margin-right: 10px; /* Space between icon and text */
   }
   
-  
-  
   .skill {
-    margin-bottom: 15px;
+    margin-bottom: 20px; /* Increased space between skills */
   }
   
   .skill p {
-    margin: 0 0 5px;
-    font-size: 16px;
+    margin: 0 0 8px;
+    font-size: 1.05em; /* Slightly larger skill text */
+    color: #E0E0E0; /* Softer white for skill name */
   }
   
   .progress-bar {
-    background-color: #d0d0d0;
+    background-color: #004772; /* Darker blue for progress bar background */
     border-radius: 5px;
     overflow: hidden;
-    height: 10px;
+    height: 12px; /* Slightly thicker progress bar */
     position: relative;
   }
   
   .progress {
     height: 100%;
-    background-color: #a41d35;
+    background-color: #C00000; /* Maroon for progress, matching timeline dots */
     transition: width 0.5s ease;
+    border-radius: 5px; /* Rounded progress fill */
   }
 
-  /* Certificates and languages in Skills */
-  .back{
-    width: 50%;
-    background-color: #14c0f1;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin-top: 20px;
-
-  }
+  /* Certificates and Languages (reusing timeline styles from aboutme.css if applicable) */
   .displayflex-part{
     display: flex;
     column-gap: 25px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
   }
+
+  .certificates-container, .languages-container { /* .back class can be removed if not needed elsewhere */
+    flex: 1; /* Allow flexible sizing */
+    min-width: 300px; /* Minimum width before wrapping */
+    /* width: 50%; */ /* Removed fixed width */
+  }
+
   .stars {
     color: gold;
-    font-size: 34px;
-
+    font-size: 1.5em; /* Adjusted star size */
+    line-height: 1; /* Ensure proper star alignment */
 }
  
   .timeline {
     position: relative;
     margin-left: 10px;
     padding-left: 0px;
-    border-left: 2px solid #242624 ;
+    border-left: 2px solid #004772; /* Darker blue border for timeline */
   }
   
   .timeline-item {
-    margin-bottom: 35px;
+    margin-bottom: 30px; /* Adjusted spacing */
     position: relative;
   }
-
   
   .timeline-dot {
-    width: 20px;
-    height: 20px;
-    background-color: #a41d35;
+    width: 15px;
+    height: 15px;
+    background-color: #C00000; /* Maroon dot */
     border-radius: 50%;
     position: absolute;
-    top: 8px;
-    transform: translate(-50%, -50%); /* Ortalamak için */
-
+    top: 5px; /* Adjust vertical position slightly */
+    left: -8.5px; /* Center on the line, accounting for border */
+    transform: translateY(0); /* No Y-transform needed if top is precise */
   }
+
   .timeline-content {
-    margin-left: 20px;
+    margin-left: 25px; /* Increased left margin */
   }
   
   .timeline-content h3 {
     margin: 0;
-    font-size: 18px;
-    color: #ffffff;
+    font-size: 1.1em;
+    color: #FFFFFF;
+  }
+  
+  .timeline-content h3 a {
+    color: #FFFFFF; /* White links for certificate names */
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .timeline-content h3 a:hover {
+    color: #88FFFF; /* Cyan on hover */
   }
   
   .timeline-content .date {
-    color: #64ffda;
-    font-size: 16px;
-    margin: 5px 0;
+    color: #88FFFF; /* Cyan for date */
+    font-size: 0.9em;
+    margin: 5px 0 10px 0; /* Adjusted margin */
   }
   
-  .timeline-content p {
+  .timeline-content p { /* General paragraph style in timeline, if any */
     margin: 0;
-    font-size: 18px;
-    color: #cccccc;
+    font-size: 1em;
+    color: #D0D0D0;
   }
   
-  /* Mobile Menu Styles */
-  .mobile-menu-button {
-    display: none;
+/* --- End of Improved Mobile Menu Styles --- */
+
+/* --- Standard Mobile Menu Styles --- */
+.mobile-menu-button {
+    display: none; /* Hidden on desktop, shown via media query */
     position: fixed;
     top: 20px;
     right: 20px;
-    z-index: 9999;
-    background-color: #14c0f1;
-    color: #ffffff;
-    padding: 10px;
+    z-index: 1005;
+    background-color: #005A8D;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px;
     border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     cursor: pointer;
-    width: 40px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-  }
+    font-size: 1.2em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
 
-  .mobile-nav {
+.mobile-menu-button:hover {
+    background-color: #004772;
+}
+
+.mobile-menu-backdrop {
     display: none;
     position: fixed;
     top: 0;
-    right: -100%;
-    width: 80%;
-    max-width: 300px;
-    height: 100vh;
-    background-color: #14c0f1;
-    z-index: 9999;
-    transition: right 0.3s ease;
-    box-shadow: -2px 0 5px rgba(0,0,0,0.2);
-    overflow-x: hidden;
-  }
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1002;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
 
-  .mobile-nav.active {
-    right: 0;
-  }
+.mobile-menu-backdrop.active {
+    display: block;
+    opacity: 1;
+}
 
-  .mobile-nav-header {
-    padding: 20px;
-    text-align: right;
-  }
-
-  .close-menu {
-    font-size: 24px;
-    color: #ffffff;
-    cursor: pointer;
-  }
-
-  .mobile-nav-links {
+.mobile-nav {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-  }
+    align-items: center;
+    padding-top: 40px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: auto;
+    width: 85%;
+    max-width: 320px;
+    height: 100%;
+    background-color: #004772;
+    z-index: 1003;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    visibility: hidden;
+    box-shadow: -3px 0 10px rgba(0,0,0,0.2);
+}
 
-  .mobile-nav-links a {
-    color: #ffffff;
+.mobile-nav.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+}
+
+.mobile-nav-header {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: auto;
+}
+
+button.close-menu {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 1.6em;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+}
+
+button.close-menu:hover {
+    color: #ADD8E6;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-top: 20px;
+    list-style: none;
+    width: 100%;
+}
+
+.mobile-nav-links a {
+    color: #FFFFFF;
     text-decoration: none;
-    padding: 15px;
+    padding: 18px 30px;
     border-radius: 8px;
-    margin-bottom: 10px;
-    font-size: 18px;
-    transition: background-color 0.3s;
-  }
+    margin: 10px 0;
+    font-size: 1.25em;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    width: 80%;
+    max-width: 280px;
+    box-sizing: border-box;
+}
 
-  .mobile-nav-links a:hover {
+.mobile-nav-links a:hover {
     background-color: rgba(255,255,255,0.1);
-  }
+    color: #88FFFF;
+}
+/* --- End of Standard Mobile Menu Styles --- */
 
-  /* Mobile Responsive Design */
-  @media screen and (max-width: 768px) {
+/* --- Standard Mobile Media Query Adjustments for Menu --- */
+@media screen and (max-width: 768px) {
+    .mobile-menu-button {
+        display: block !important; /* Ensure button is visible */
+    }
+
+    /* Hide desktop tabs if they are identified by .tabs class */
+    .tabs {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .mobile-nav-links a {
+        padding: 15px 20px; /* Adjust padding for smaller screens */
+        font-size: 1em;    /* Adjust font size for smaller screens */
+    }
+}
+/* --- End of Standard Mobile Media Query Adjustments for Menu --- */
+
+/* Responsive Adjustments for Skills Page */
+@media screen and (max-width: 768px) {
     body {
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-        width: 100%;
+        /* margin: 0; */ /* Already set */
+        /* padding: 0; */ /* Already set */
+        overflow-x: hidden; /* Yatay kaydırmayı engelle */
+        /* width: 100%; */ /* Already set */
     }
 
     .container {
         flex-direction: column;
-        width: 100%;
-        padding: 0;
-        overflow-x: hidden;
+        /* width: 100%; */ /* Already set */
+        /* padding: 0; */ /* Already set */
+        /* overflow-x: hidden; */ /* Bu body için daha uygun */
+        max-width: 100%; 
+        margin: 0;
+        box-shadow: none; 
+        width: 100%; /* Tam genişlik */
+        box-sizing: border-box; /* Kutu modelini düzelt */
+    }
+
+    .mobile-menu-button {
+        display: block !important; /* Ensure it is displayed */
+    }
+
+    /* .mobile-nav is handled by its own active class and default display:none */
+
+    .tabs {
+        display: none; /* Tabs are hidden, navigation is via mobile menu */
+    }
+
+    .sidebar {
+        display: none; /* Hide sidebar on mobile */
+    }
+
+    /* Show sidebar only on specific page types if needed, or remove if always shown before mobile nav */
+    /* .skills-page .sidebar { 
+        display: flex !important; 
+    } */ /* Commented out to ensure sidebar is hidden */
+
+    .avatar {
+        width: 100px; /* Further reduced avatar size */
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar h1 {
+        font-size: 1.2em;
+    }
+
+    .sidebar h4 {
+        font-size: 0.8em;
+        margin-bottom: 10px;
+    }
+
+    .contact {
+        align-items: center; 
+        padding-left: 0; 
+        row-gap: 10px;
+    }
+
+    .contact p {
+        justify-content: center;
+        font-size: 0.9em;
+    }
+    .contact img {
+        height: 24px;
+        width: 24px;
     }
 
     .content {
         width: 100%;
-        margin: 0;
+        margin-left: 0; 
+        padding: 20px 15px; /* Adjusted padding */
+        box-sizing: border-box;
+        /* overflow-x: hidden; */ /* Bu body için daha uygun */
+        /* background-color: #3D0000; */ /* Bu zaten var */
+    }
+
+    .skills-container, .certificates-container, .languages-container {
+        width: calc(100% - 30px); /* Full width minus padding */
+        margin-left: auto;
+        margin-right: auto;
         padding: 10px;
-        box-sizing: border-box;
+    }
+    
+    .skills-container h2, .certificates-container h2, .languages-container h2 {
+        font-size: 1.2em; /* Adjust heading size for mobile */
+    }
+    .skills-container h2 img, .certificates-container h2 img, .languages-container h2 img {
+        height: 24px;
+        width: 24px;
     }
 
-    /* Adjust skills container for mobile */
-    .skills-container {
-        width: 100%;
-        margin: 0;
-        padding: 15px;
-        box-sizing: border-box;
+    .displayflex-part{
+        flex-direction: column; /* Stack certificate and language sections */
+        gap: 0; /* Remove gap if stacking, use margin on containers */
     }
 
-    /* Adjust certificates and languages sections */
-    .displayflex-part {
-        flex-direction: column;
-        gap: 20px;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-    }
-
-    .back {
-        width: 100%;
-        margin: 10px 0;
-        padding: 15px;
-        box-sizing: border-box;
+    .certificates-container, .languages-container {
+        min-width: unset; /* Remove min-width when stacked */
+        width: calc(100% - 30px); /* Full width minus padding */
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .timeline-content {
         margin-left: 15px;
-        width: calc(100% - 30px);
+        /* width: calc(100% - 30px); */ /* This might be too restrictive, let it flow */
     }
 
+    .timeline-content h3 {
+        font-size: 1em;
+    }
+
+    .timeline-content .date {
+        font-size: 0.8em;
+    }
+    
     .stars {
-        font-size: 24px;
+        font-size: 1.3em;
+    }
+}
+
+/* Small Mobile Devices Adjustments (optional, fine-tune as needed) */
+@media screen and (max-width: 480px) {
+    .sidebar h1 {
+        font-size: 1.1em;
     }
 
-    /* Adjust skill progress bars */
-    .skill {
-        margin-bottom: 15px;
-        width: 100%;
+    .sidebar h4 {
+        font-size: 0.7em;
+    }
+
+    .contact p {
+        font-size: 0.8em;
+    }
+    .contact img {
+        height: 20px;
+        width: 20px;
+    }
+
+    .mobile-nav-links a {
+        padding: 15px 20px;
+        font-size: 1em;
+    }
+
+    .skills-container h2, .certificates-container h2, .languages-container h2 {
+        font-size: 1.1em;
     }
 
     .skill p {
-        font-size: 14px;
-        margin-bottom: 8px;
+        font-size: 1em;
     }
 
     .progress-bar {
-        width: 100%;
+        height: 10px;
     }
 
-    .mobile-menu-button {
-        display: block !important;
+    .timeline-dot {
+        width: 12px;
+        height: 12px;
+        left: -6.5px;
+        top: 4px;
     }
-
-    .mobile-nav {
-        display: block;
-    }
-
-    .tabs {
-        display: none;
-    }
-
-    /* Hide sidebar for all pages except home page */
-    .sidebar {
-        display: none !important;
-    }
-
-    /* Only show sidebar on home page */
-    .home-page .sidebar {
-        display: block !important;
-        width: 100%;
-        height: auto;
-        position: relative;
-        margin-top: 0;
-        padding: 10px;
-    }
-  }
+}

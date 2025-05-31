@@ -12,12 +12,9 @@
   <div class="mobile-menu-button">
     <i class="fas fa-bars"></i>
   </div>
-
+  <div class="mobile-menu-backdrop"></div>
   <!-- Mobile Navigation Menu -->
   <div class="mobile-nav">
-    <div class="mobile-nav-header">
-      <i class="fas fa-times close-menu"></i>
-    </div>
     <nav class="mobile-nav-links">
       <a href="index.html">About Me</a>
       <a href="skills.html">Skills</a>
@@ -31,7 +28,7 @@
     <aside class="sidebar">
       <div class="sidebar-wrapper">
       <img src="img/profile-photo.jpg" alt="Avatar" class="avatar">
-      <h1 style="color:red; font-weight: bold;">Yasin Kuru</h1>
+      <h1>Yasin Kuru</h1>
       <h4>MIS Student</h4>
       
 
@@ -57,7 +54,7 @@
 
           <!-- Yeni Eklenen Projeler -->
           <div class="project">
-            <img src="img/ekle Linkedin Automation img/profile.png" alt="">
+            <img src="img/ekle Linkedin Automation img/profile.png" alt="" class="project-image">
             <h2>Linkedin Automation</h2>
             <div class="icons">
               <img src="img/app icons/Python.png" alt="">
@@ -69,7 +66,7 @@
           </div>
 
           <div class="project">
-            <img src="img/ekle emlakjet house price prediction img/profile.png" alt="">
+            <img src="img/ekle emlakjet house price prediction img/profile.png" alt="" class="project-image">
             <h2>Emlakjet House Price Prediction</h2>
             <div class="icons">
               <img src="img/app icons/Python.png" alt="">
@@ -81,7 +78,7 @@
           </div>
 
           <div class="project">
-            <img src="img/ekle edurese mobil app img/profile.png" alt="">
+            <img src="img/ekle edurese mobil app img/profile.png" alt="" class="project-image">
             <h2>Edurese Mobile App</h2>
             <div class="icons">
               <img src="img/app icons/flutter.png" alt="">
@@ -92,7 +89,7 @@
           </div>
 
           <div class="project">
-            <img src="img/ekle canias img/profile.jpg" alt="">
+            <img src="img/ekle canias img/profile.jpg" alt="" class="project-image">
             <h2>Canias</h2>
             <div class="icons">
             </div>
@@ -102,7 +99,7 @@
           </div>
 
           <div class="project">
-            <img src="img/ekle soccerimg/profile.png" alt="">
+            <img src="img/ekle soccerimg/profile.png" alt="" class="project-image">
             <h2>Soccer Player Position Prediction</h2>
             <div class="icons">
               <img src="img/app icons/Python.png" alt="">
@@ -115,7 +112,7 @@
           </div>
 
           <div class="project">
-            <img src="img/ekle anonmeet img/profile.png" alt="">
+            <img src="img/ekle anonmeet img/profile.png" alt="" class="project-image">
             <h2>Anonmeet</h2>
             <div class="icons">
               <img src="img/app icons/flutter.png" alt="">
@@ -128,7 +125,7 @@
 
           <!-- Mevcut Projeler -->
           <div class="project">
-            <img src="img/Hospital management system img/profil.png" alt="">
+            <img src="img/Hospital management system img/profil.png" alt="" class="project-image">
             <h2>Hospital Management System</h2>
             <div class="icons">
             <img src="img/app icons/(CSharp).png" alt="">
@@ -139,7 +136,7 @@
             </a>
           </div>
           <div class="project">
-            <img src="img/Film website project img/profile.png" alt="">
+            <img src="img/Film website project img/profile.png" alt="" class="project-image">
             <h2>My Movie Site</h2>
             <div class="icons">
               <img src="img/app icons/HTML5.png" alt="">
@@ -151,7 +148,7 @@
             </a>
           </div>
           <div class="project">
-            <img src="img/QR code generator/profile.png" alt="">
+            <img src="img/QR code generator/profile.png" alt="" class="project-image">
             <h2>QR Code Generator</h2>
             <div class="icons">
               <img src="img/app icons/Python.png" alt="">
@@ -161,7 +158,7 @@
             </a>
           </div>
           <div class="project">
-            <img src="img/footbal goal analysis img/profile.png" alt="">
+            <img src="img/footbal goal analysis img/profile.png" alt="" class="project-image">
             <h2>Football Goal Analysis</h2>
             <div class="icons">
               <img src="img/app icons/Python.png" alt="">
@@ -172,7 +169,7 @@
             </a>
           </div>
           <div class="project">
-            <img src="img/Data Visualization img/profile.png" alt="">
+            <img src="img/Data Visualization img/profile.png" alt="" class="project-image">
             <h2>Data Visualization</h2>
             <div class="icons">
             <img src="img/app icons/power-bi-icon.png" alt="">
@@ -182,7 +179,7 @@
           </a>
           </div>
           <div class="project">
-            <img src="img/Database Design/profile.png" alt="">
+            <img src="img/Database Design/profile.png" alt="" class="project-image">
             <h2>Database Design and Management</h2>
             <div class="icons">
               <img src="img/app icons/MySQL-PNG-HD-Images.png" alt="">
@@ -200,15 +197,20 @@
     document.addEventListener('DOMContentLoaded', function() {
       const menuButton = document.querySelector('.mobile-menu-button');
       const mobileNav = document.querySelector('.mobile-nav');
-      const closeMenu = document.querySelector('.close-menu');
+      const backdrop = document.querySelector('.mobile-menu-backdrop');
       
-      menuButton.addEventListener('click', function() {
+      function openMenu() {
         mobileNav.classList.add('active');
-      });
-      
-      closeMenu.addEventListener('click', function() {
+        backdrop.classList.add('active');
+      }
+
+      function closeMenu() {
         mobileNav.classList.remove('active');
-      });
+        backdrop.classList.remove('active');
+      }
+
+      menuButton.addEventListener('click', openMenu);
+      backdrop.addEventListener('click', closeMenu);
     });
   </script>
 </body>

@@ -12,12 +12,9 @@
   <div class="mobile-menu-button">
     <i class="fas fa-bars"></i>
   </div>
-
+  <div class="mobile-menu-backdrop"></div>
   <!-- Mobile Navigation Menu -->
   <div class="mobile-nav">
-    <div class="mobile-nav-header">
-      <i class="fas fa-times close-menu"></i>
-    </div>
     <nav class="mobile-nav-links">
       <a href="index.html">About Me</a>
       <a href="skills.html">Skills</a>
@@ -31,7 +28,7 @@
     <aside class="sidebar">
       <div class="sidebar-wrapper">
       <img src="img/profile-photo.jpg" alt="Avatar" class="avatar">
-      <h1 style="color:red; font-weight: bold;">Yasin Kuru</h1>
+      <h1>Yasin Kuru</h1>
       <h4>MIS Student</h4>
      
 
@@ -60,7 +57,7 @@
       </section>
       <section class="skills">
         <div class="skills-container">
-          <h2><img style="height: 50px; width: 50px;" src="img/skill.png" alt=""> Skills and Knowledge</h2>
+          <h2><img src="img/skill.png" alt=""> Skills and Knowledge</h2>
           <div class="skill">
             <p>Database Management (MySQL)</p>
             <div class="progress-bar">
@@ -113,7 +110,7 @@
       </section>
       <section class="displayflex-part">
         <div class="certificates-container back">
-          <h2><img style="height: 50px; width: 50px; ;" src="img/certificate.png" alt=""> Certificates</h2>
+          <h2><img src="img/certificate.png" alt=""> Certificates</h2>
             
         <div class="timeline">
           <div class="timeline-item">
@@ -141,7 +138,7 @@
               <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                  <h3 style="color: #64ffda;">Occupational Health and Safety Training</h3>
+                  <h3>Occupational Health and Safety Training</h3>
                   <p class="date">October 2022</p>
                 </div>
                 </div>
@@ -149,7 +146,7 @@
           </div>
           </div>
           <div class="languages-container back">
-            <h2><img style="height: 50px; width: 50px; ;" src="img/world.png" alt=""> Languages</h2>
+            <h2><img src="img/world.png" alt=""> Languages</h2>
             <div class="timeline">
               <div class="timeline-item">
                 <div class="timeline-dot"></div>
@@ -180,15 +177,20 @@
     document.addEventListener('DOMContentLoaded', function() {
       const menuButton = document.querySelector('.mobile-menu-button');
       const mobileNav = document.querySelector('.mobile-nav');
-      const closeMenu = document.querySelector('.close-menu');
+      const backdrop = document.querySelector('.mobile-menu-backdrop');
       
-      menuButton.addEventListener('click', function() {
+      function openMenu() {
         mobileNav.classList.add('active');
-      });
-      
-      closeMenu.addEventListener('click', function() {
+        backdrop.classList.add('active');
+      }
+
+      function closeMenu() {
         mobileNav.classList.remove('active');
-      });
+        backdrop.classList.remove('active');
+      }
+
+      menuButton.addEventListener('click', openMenu);
+      backdrop.addEventListener('click', closeMenu);
     });
   </script>
 </body>

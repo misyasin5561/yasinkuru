@@ -15,12 +15,9 @@
   <div class="mobile-menu-button">
     <i class="fas fa-bars"></i>
   </div>
-
+  <div class="mobile-menu-backdrop"></div>
   <!-- Mobile Navigation Menu -->
   <div class="mobile-nav">
-    <div class="mobile-nav-header">
-      <i class="fas fa-times close-menu"></i>
-    </div>
     <nav class="mobile-nav-links">
       <a href="index.html">About Me</a>
       <a href="skills.html">Skills</a>
@@ -34,7 +31,7 @@
     <aside class="sidebar">
       <div class="sidebar-wrapper">
       <img src="img/profile-photo.jpg" alt="Avatar" class="avatar">
-      <h1 style="color:red; font-weight: bold;">Yasin Kuru</h1>
+      <h1>Yasin Kuru</h1>
       <h4>MIS Student</h4>
       
 
@@ -126,15 +123,20 @@
     document.addEventListener('DOMContentLoaded', function() {
       const menuButton = document.querySelector('.mobile-menu-button');
       const mobileNav = document.querySelector('.mobile-nav');
-      const closeMenu = document.querySelector('.close-menu');
+      const backdrop = document.querySelector('.mobile-menu-backdrop');
       
-      menuButton.addEventListener('click', function() {
+      function openMenu() {
         mobileNav.classList.add('active');
-      });
-      
-      closeMenu.addEventListener('click', function() {
+        backdrop.classList.add('active');
+      }
+
+      function closeMenu() {
         mobileNav.classList.remove('active');
-      });
+        backdrop.classList.remove('active');
+      }
+
+      menuButton.addEventListener('click', openMenu);
+      backdrop.addEventListener('click', closeMenu);
     });
   </script>
 </body>

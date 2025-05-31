@@ -153,7 +153,7 @@ body {
     max-width: 900px; /* Max width for the form container */
     margin-left: auto; /* Center it if content area is wider */
     margin-right: auto;
-    width: 100%; /* Ensure it takes up available space up to max-width */
+    width: 92%; /* Ensure it takes up available space up to max-width */
 }
   
 .form{

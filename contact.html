@@ -1,143 +1,230 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - Yasin Kuru</title>
-  <link rel="stylesheet" href="contact1.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <!-- Firebase SDK'larını ekleyelim -->
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
-</head>
-<body class="contact-page">
-  <!-- Mobile Menu Button -->
-  <div class="mobile-menu-button">
-    <i class="fas fa-bars"></i>
-  </div>
-  <div class="mobile-menu-backdrop"></div>
-  <!-- Mobile Navigation Menu -->
-  <div class="mobile-nav">
-    <nav class="mobile-nav-links">
-      <a href="index.html">About Me</a>
-      <a href="skills.html">Skills</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-
-  <div class="container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-wrapper">
-      <img src="img/profile-photo.jpg" alt="Avatar" class="avatar">
-      <h1>Yasin Kuru</h1>
-      <h4>MIS Student</h4>
-      
-
-      <div class="contact">
-        <p><img  src="img/contact icon/phone.png" > <span>Send an email for more</span></p>
-        <p><img  src="img/contact icon/linkedin.png" alt=""><a href="https://www.linkedin.com/in/yasin-kuru-mis" target="_blank">yasin_kuru-mis</a></p>
-        <p><img  src="img/contact icon/mail.png" alt="">    <a href="mailto:ymaisisn61@gmail.com" target="_blank" >ymaisisn61@gmail.com</a>  </p>
-      </div>
-    </div>
-    </aside>
-
-    <!--Navbar -->
-    <main class="content">
-      <nav class="tabs">
-        <a href="index.html">About Me</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-       
-      </nav>
-      <section class="about">
-        <h2>Contact</h2>
-        <p>
-            You can reach me via the form and my contact information for communication. I am always open to your work and cooperation offers. I look forward to hearing from you and evaluating cooperation opportunities.
-        </p>
-      </section>
-      <section class="connection">
-        <div class="container">
-            <div class="form">
-            <div class="form-image">
-            <img src="img/contactt.jpg" alt="Mail Icon">
-            </div>
-            <div class="form-area">
-                <form id="contactForm" onsubmit="submitForm(event)">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" placeholder="ex. Tuğrul, Osman, Fatih, Kemal" required>
-    
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="ex. ata@outlook.com  " required>
-    
-                    <label for="message">Comment or Message</label>
-                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-        </div>
-        
-        </div>
-
-      </section>
-    </main>
-  </div>
-
-  <script src="js/firebase-config.js"></script>
-  <script>
-    // Form submission function
-    function submitForm(e) {
-        e.preventDefault();
-
-        // Get form data
-        const name = document.getElementById('name').value;
-        const email = document.getElementById('email').value;
-        const message = document.getElementById('message').value;
-
-        // Add timestamp
-        const timestamp = new Date().toISOString();
-
-        // Save data to Firebase
-        firebase.database().ref('contacts').push({
-            name: name,
-            email: email,
-            message: message,
-            timestamp: timestamp
-        })
-        .then(() => {
-            alert('Message sent successfully!');
-            document.getElementById('contactForm').reset();
-        })
-        .catch((error) => {
-            console.error('Error details:', error);
-            if (error.code === 'PERMISSION_DENIED') {
-                alert('Error: Unable to send message. Please make sure you have proper permissions.');
-            } else {
-                alert('Error sending message: ' + error.message);
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Yasin Kuru</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-burgundy': '#800000',
+                        'primary-blue': '#004080',
+                        'neutral-gray': '#F3F4F6',
+                        'dark-text': '#1F2937',
+                        'light-text': '#FFFFFF',
+                        'input-bg': '#FFFFFF',
+                        'input-border': '#D1D5DB',
+                    }
+                }
             }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .sticky-nav {
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+    </style>
+</head>
+<body class="bg-neutral-gray text-dark-text">
+
+    <!-- Navigation Bar -->
+    <nav class="sticky-nav bg-white shadow-md">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-primary-burgundy hover:text-primary-blue">Yasin Kuru</a>
+            <div class="hidden md:flex space-x-4">
+                <a href="index.html" class="text-dark-text hover:text-primary-burgundy px-3 py-2 rounded-md text-sm font-medium">About Me</a>
+                <a href="skills.html" class="text-dark-text hover:text-primary-burgundy px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                <a href="projects.html" class="text-dark-text hover:text-primary-burgundy px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                <a href="contact.html" class="text-primary-burgundy font-semibold px-3 py-2 rounded-md text-sm">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-dark-text focus:outline-none">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <a href="index.html" class="block text-dark-text hover:bg-primary-burgundy hover:text-light-text px-4 py-2 text-sm">About Me</a>
+            <a href="skills.html" class="block text-dark-text hover:bg-primary-burgundy hover:text-light-text px-4 py-2 text-sm">Skills</a>
+            <a href="projects.html" class="block text-dark-text hover:bg-primary-burgundy hover:text-light-text px-4 py-2 text-sm">Projects</a>
+            <a href="contact.html" class="block bg-primary-burgundy text-light-text px-4 py-2 text-sm font-semibold">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-6 py-12">
+        <section id="contact-section">
+            <h2 class="text-3xl font-bold text-primary-burgundy mb-8 text-center"><i class="fas fa-envelope mr-2"></i>Get In Touch</h2>
+            
+            <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-xl">
+                <p class="text-lg text-gray-700 mb-8 text-center">
+                    You can reach me via the form and my contact information for communication. I am always open to your work and cooperation offers. I look forward to hearing from you and evaluating cooperation opportunities.
+                </p>
+
+                <div class="grid md:grid-cols-2 gap-10">
+                    <!-- Contact Form -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary-blue mb-6">Send Me a Message</h3>
+                        <form id="contactForm">
+                            <div class="mb-5">
+                                <label for="name" class="block mb-2 text-sm font-medium text-dark-text">Full Name</label>
+                                <input type="text" id="name" name="name" placeholder="e.g., Yasin Kuru" required 
+                                       class="w-full px-4 py-2.5 bg-input-bg border border-input-border rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-primary-blue outline-none transition-colors duration-300">
+                            </div>
+                            <div class="mb-5">
+                                <label for="email" class="block mb-2 text-sm font-medium text-dark-text">Email Address</label>
+                                <input type="email" id="email" name="email" placeholder="e.g., yasin.kuru@example.com" required
+                                       class="w-full px-4 py-2.5 bg-input-bg border border-input-border rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-primary-blue outline-none transition-colors duration-300">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block mb-2 text-sm font-medium text-dark-text">Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Your message here..." required
+                                          class="w-full px-4 py-2.5 bg-input-bg border border-input-border rounded-lg focus:ring-2 focus:ring-primary-blue focus:border-primary-blue outline-none transition-colors duration-300"></textarea>
+                            </div>
+                            <button type="submit" 
+                                    class="w-full bg-primary-burgundy hover:bg-opacity-80 text-light-text font-bold py-3 px-6 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-primary-burgundy focus:ring-opacity-50">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-primary-blue mb-6">Contact Information</h3>
+                        <div class="space-y-6 text-lg">
+                            <div class="flex items-start">
+                                <i class="fas fa-envelope fa-fw text-primary-burgundy mt-1 mr-3 text-xl"></i>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <a href="mailto:ymaisisn61@gmail.com" class="text-gray-700 hover:text-primary-burgundy transition-colors duration-300">ymaisisn61@gmail.com</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fab fa-linkedin fa-fw text-primary-burgundy mt-1 mr-3 text-xl"></i>
+                                <div>
+                                    <h4 class="font-semibold">LinkedIn</h4>
+                                    <a href="https://www.linkedin.com/in/yasin-kuru-mis" target="_blank" rel="noopener noreferrer" class="text-gray-700 hover:text-primary-burgundy transition-colors duration-300">linkedin.com/in/yasin-kuru-mis</a>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt fa-fw text-primary-burgundy mt-1 mr-3 text-xl"></i>
+                                <div>
+                                    <h4 class="font-semibold">Location</h4>
+                                    <p class="text-gray-700">Izmir, Turkey (Open to remote work)</p> 
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8 pt-6 border-t border-neutral-gray-300">
+                            <h4 class="text-xl font-semibold text-primary-blue mb-3">Preferred Contact</h4>
+                            <p class="text-gray-700">Feel free to send an email or connect on LinkedIn. For urgent matters, email is preferred.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary-blue text-light-text py-8 text-center mt-12">
+        <div class="container mx-auto px-6">
+            <div class="mb-4">
+                <a href="https://www.linkedin.com/in/yasin-kuru-mis" target="_blank" class="text-light-text hover:text-primary-burgundy mx-2 text-xl"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:ymaisisn61@gmail.com" class="text-light-text hover:text-primary-burgundy mx-2 text-xl"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2024 Yasin Kuru. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart text-primary-burgundy"></i> using Tailwind CSS</p>
+        </div>
+    </footer>
+
+    <script src="js/firebase-config.js"></script> 
+    <script>
+        // Firebase Form Submission
+        const contactForm = document.getElementById('contactForm');
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const name = document.getElementById('name').value.trim();
+                const email = document.getElementById('email').value.trim();
+                const message = document.getElementById('message').value.trim();
+                const timestamp = new Date().toISOString();
+
+                if (!name || !email || !message) {
+                    alert('Please fill in all fields.');
+                    return;
+                }
+
+                // Basic email validation
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailPattern.test(email)) {
+                    alert('Please enter a valid email address.');
+                    return;
+                }
+
+                // Ensure Firebase is initialized (firebase-config.js should handle this)
+                if (typeof firebase !== 'undefined' && firebase.database) {
+                    firebase.database().ref('contacts/' + firebase.database().ref().push().key).set({
+                        name: name,
+                        email: email,
+                        message: message,
+                        timestamp: timestamp
+                    })
+                    .then(() => {
+                        alert('Message sent successfully! Thank you for reaching out.');
+                        contactForm.reset();
+                    })
+                    .catch((error) => {
+                        console.error('Firebase error details:', error);
+                        alert('Error sending message: ' + error.message + ". Check console for details. Ensure Firebase is configured correctly and database rules allow writes.");
+                    });
+                } else {
+                    alert('Firebase is not initialized. Please check your Firebase configuration.');
+                    console.error('Firebase object or firebase.database is not available.');
+                }
+            });
+        }
+
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (this.getAttribute('href') !== "#" && document.querySelector(this.getAttribute('href'))) {
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
         });
-    }
+    </script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-      const menuButton = document.querySelector('.mobile-menu-button');
-      const mobileNav = document.querySelector('.mobile-nav');
-      const backdrop = document.querySelector('.mobile-menu-backdrop');
-      
-      function openMenu() {
-        mobileNav.classList.add('active');
-        backdrop.classList.add('active');
-      }
-
-      function closeMenu() {
-        mobileNav.classList.remove('active');
-        backdrop.classList.remove('active');
-      }
-
-      menuButton.addEventListener('click', openMenu);
-      backdrop.addEventListener('click', closeMenu);
-    });
-  </script>
 </body>
 </html>

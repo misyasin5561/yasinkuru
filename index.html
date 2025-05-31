@@ -1,141 +1,169 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me - Yasin Kuru</title>
-
-  <link rel="stylesheet" href="aboutme.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yasin Kuru - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-burgundy': '#800000',
+                        'primary-blue': '#004080',
+                        'neutral-gray': '#F3F4F6', // Light gray for backgrounds
+                        'dark-text': '#1F2937',    // Dark gray for text
+                        'light-text': '#FFFFFF',   // White text
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom global styles if needed - will be minimal with Tailwind */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example professional font */
+        }
+        .sticky-nav {
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+    </style>
 </head>
-<body class="home-page">
-  <!-- Mobile Menu Button -->
-  <div class="mobile-menu-button">
-    <i class="fas fa-bars"></i>
-  </div>
-  <div class="mobile-menu-backdrop"></div>
-  <!-- Mobile Navigation Menu -->
-  <div class="mobile-nav">
-    <nav class="mobile-nav-links">
-      <a href="index.html">About Me</a>
-      <a href="skills.html">Skills</a>
-      <a href="projects.html">Projects</a>
-      <a href="contact.html">Contact</a>
+<body class="bg-neutral-gray text-dark-text">
+
+    <!-- Navigation Bar -->
+    <nav class="sticky-nav bg-white shadow-md">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-primary-burgundy hover:text-primary-blue">Yasin Kuru</a>
+            <div class="hidden md:flex space-x-4">
+                <a href="index.html" class="text-dark-text hover:text-primary-burgundy px-3 py-2 rounded-md text-sm font-medium">About Me</a>
+                <a href="skills.html" class="text-dark-text hover:text-primary-burgundy px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                <a href="projects.html" class="text-dark-text hover:text-primary-burgundy px-3 py-2 rounded-md text-sm font-medium">Projects</a>
+                <a href="contact.html" class="text-dark-text hover:text-primary-burgundy px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-dark-text focus:outline-none">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <a href="index.html" class="block text-dark-text hover:bg-primary-burgundy hover:text-light-text px-4 py-2 text-sm">About Me</a>
+            <a href="skills.html" class="block text-dark-text hover:bg-primary-burgundy hover:text-light-text px-4 py-2 text-sm">Skills</a>
+            <a href="projects.html" class="block text-dark-text hover:bg-primary-burgundy hover:text-light-text px-4 py-2 text-sm">Projects</a>
+            <a href="contact.html" class="block text-dark-text hover:bg-primary-burgundy hover:text-light-text px-4 py-2 text-sm">Contact</a>
+        </div>
     </nav>
-  </div>
 
-  <div class="container">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-wrapper">
-      <img src="img/profile-photo.jpg" alt="Avatar" class="avatar">
-      <h1>Yasin Kuru</h1>
-      <h4>MIS Student</h4>
-    
-      <div class="contact">
-        <p><img  src="img/contact icon/phone.png" > <span>Send an email for more</span></p>
-        <p><img  src="img/contact icon/linkedin.png" alt=""><a href="https://www.linkedin.com/in/yasin-kuru-mis" target="_blank">yasin_kuru-mis</a></p>
-        <p><img  src="img/contact icon/mail.png" alt="">    <a href="mailto:ymaisisn61@gmail.com" target="_blank">ymaisisn61@gmail.com</a>  </p>
-      </div>
-    </div>
-    </aside>
+    <!-- Hero Section -->
+    <header class="bg-primary-blue text-light-text py-20">
+        <div class="container mx-auto px-6 text-center">
+            <img src="img/profile-photo.jpg" alt="Yasin Kuru" class="w-32 h-32 md:w-40 md:h-40 rounded-full mx-auto mb-6 border-4 border-primary-burgundy shadow-xl">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Yasin Kuru</h1>
+            <p class="text-xl md:text-2xl mb-8">MIS Student | Aspiring Business & Data Analyst</p>
+            <a href="projects.html" class="bg-primary-burgundy hover:bg-opacity-80 text-light-text font-bold py-3 px-8 rounded-lg text-lg transition duration-300">View My Work</a>
+        </div>
+    </header>
 
-    <!-- Navbar-->
-    <main class="content">
-      <nav class="tabs">
-        <a href="index.html">About Me</a>
-        <a href="skills.html">Skills</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-       
-      </nav>
-      <section class="about">
-        <h2>About Me</h2>
-        <p>
-        I am Yasin Kuru, a 3rd year student of Management Information Systems at Bakırçay University. I focus on improving myself in business analysis, data analysis and web test automation. I aim to optimize processes by using technological solutions effectively and add value to businesses with data-based insights. Contributing to problem solving and process improvement with innovative approaches is my biggest motivation.
-        </p>
-      </section>
-      <section class="aboutme">
-        <div class="experience-container">
-          <div class="experience-wrapper">
+    <!-- Main Content Area (Placeholder) -->
+    <main class="container mx-auto px-6 py-12">
+        <section id="about" class="mb-16">
+            <h2 class="text-3xl font-bold text-primary-burgundy mb-6">About Me</h2>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <p class="text-lg leading-relaxed">
+                    I am Yasin Kuru, a 3rd year student of Management Information Systems at Bakırçay University. I focus on improving myself in business analysis, data analysis and web test automation. I aim to optimize processes by using technological solutions effectively and add value to businesses with data-based insights. Contributing to problem solving and process improvement with innovative approaches is my biggest motivation.
+                </p>
+            </div>
+        </section>
 
-          <h2><img style="height: 20px; width: 20px; " src="img/experience.png" alt=""> Experience</h2>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>Website Management at EDURESE Academy</h3>
-                <p class="date">2024 - Present</p>
-                <p>Transformed the website from a static promotional site into a fully functional e-commerce platform for course registration. Independently implemented all technical aspects, including integrating registration forms directly into the site and automating order confirmation for bank transfer payments. Stakeholder input—such as visual assets and strategic guidance—was incorporated to ensure alignment with institutional goals.</p>
-              </div>
+        <section id="experience" class="mb-16">
+            <h2 class="text-3xl font-bold text-primary-burgundy mb-6">Experience</h2>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <!-- Experience Item 1 -->
+                <div class="mb-6 pb-6 border-b border-neutral-gray last:border-b-0">
+                    <h3 class="text-xl font-semibold text-primary-blue">Website Management at EDURESE Academy</h3>
+                    <p class="text-sm text-gray-600 mb-2">2024 - Present</p>
+                    <p class="text-lg leading-relaxed">Transformed the website from a static promotional site into a fully functional e-commerce platform for course registration. Independently implemented all technical aspects, including integrating registration forms directly into the site and automating order confirmation for bank transfer payments. Stakeholder input—such as visual assets and strategic guidance—was incorporated to ensure alignment with institutional goals.</p>
+                </div>
+                <!-- Experience Item 2 -->
+                <div>
+                    <h3 class="text-xl font-semibold text-primary-blue">Volunteer at EDURESE Academy</h3>
+                    <p class="text-sm text-gray-600 mb-2">2022 - Present</p>
+                    <p class="text-lg leading-relaxed">Course Representation and video upload</p>
+                </div>
             </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>Volunteer at EDURESE Academy</h3>
-                <p class="date">2022 - Present</p>
-                <p>Course Representation and video upload</p>
-              </div>
-            </div>
-        
-          </div>
-        </div>
+        </section>
 
-        </div>
-        <div class="education-container">
-          <div class="experience-wrapper">
-          <h2>🎓 Education</h2>
-          <div class="timeline">
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>Bakırçay University</h3>
-                <p class="date">2022 - Present</p>
-                <p>Management Information Systems</p>
-              </div>
+         <section id="education" class="mb-16">
+            <h2 class="text-3xl font-bold text-primary-burgundy mb-6">Education</h2>
+            <div class="bg-white p-8 rounded-lg shadow-lg">
+                <!-- Education Item 1 -->
+                <div class="mb-6 pb-6 border-b border-neutral-gray last:border-b-0">
+                    <h3 class="text-xl font-semibold text-primary-blue">Bakırçay University</h3>
+                    <p class="text-sm text-gray-600 mb-1">2022 - Present</p>
+                    <p class="text-lg">Management Information Systems</p>
+                </div>
+                <!-- Education Item 2 -->
+                <div class="mb-6 pb-6 border-b border-neutral-gray last:border-b-0">
+                    <h3 class="text-xl font-semibold text-primary-blue">Bakırçay University</h3>
+                    <p class="text-sm text-gray-600 mb-1">2021 - 2022</p>
+                    <p class="text-lg">English Preparatory Program</p>
+                </div>
+                <!-- Education Item 3 -->
+                <div>
+                    <h3 class="text-xl font-semibold text-primary-blue">Samsun Anatolian Imam Hatip Highschool</h3>
+                    <p class="text-sm text-gray-600 mb-1">2017 - 2021</p>
+                </div>
             </div>
-             <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>Bakırçay University</h3>
-                <p class="date">2021 - 2022</p>
-                <p>English Preparatory Program</p>
-              </div>
-            </div>
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <h3>Samsun Anatolion Imam Hatip Highschool</h3>
-                <p class="date">2017 - 2021</p>
-              </div>
-            </div>
-            
-          </div>
-        </div>
-        </div>
-      </section>
+        </section>
     </main>
-  </div>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const menuButton = document.querySelector('.mobile-menu-button');
-      const mobileNav = document.querySelector('.mobile-nav');
-      const backdrop = document.querySelector('.mobile-menu-backdrop');
-      
-      function openMenu() {
-        mobileNav.classList.add('active');
-        backdrop.classList.add('active');
-      }
+    <!-- Footer -->
+    <footer class="bg-primary-blue text-light-text py-8 text-center">
+        <div class="container mx-auto px-6">
+            <div class="mb-4">
+                <a href="https://www.linkedin.com/in/yasin-kuru-mis" target="_blank" class="text-light-text hover:text-primary-burgundy mx-2 text-xl"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:ymaisisn61@gmail.com" class="text-light-text hover:text-primary-burgundy mx-2 text-xl"><i class="fas fa-envelope"></i></a>
+                <!-- Add other social media links here if you have them -->
+            </div>
+            <p>&copy; 2024 Yasin Kuru. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart text-primary-burgundy"></i> using Tailwind CSS</p>
+        </div>
+    </footer>
 
-      function closeMenu() {
-        mobileNav.classList.remove('active');
-        backdrop.classList.remove('active');
-      }
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-      menuButton.addEventListener('click', openMenu);
-      backdrop.addEventListener('click', closeMenu);
-    });
-  </script>
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scroll for anchor links (optional, can be expanded)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                // Only proceed if there's a hash and a corresponding element
+                if (this.getAttribute('href') !== "#" && document.querySelector(this.getAttribute('href'))) {
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                // Close mobile menu if open and a link is clicked
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+
 </body>
 </html>

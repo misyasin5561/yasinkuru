@@ -1,0 +1,527 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    background-color: #3D0000; 
+    color: #E0E0E0; 
+    display: flex;
+    min-height: 100vh; 
+    box-sizing: border-box; 
+  }
+
+/* .aboutme class might not be relevant here, can be removed if not used in contact.html */
+/* .aboutme{
+    display: flex;
+    column-gap: 40px;
+    height: 74%; 
+  } */
+  
+  .container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px; 
+    margin: 0 auto; 
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */ /* Shadow on container can be optional here */
+  }
+  
+  /* Sidebar - Copied from aboutme.css */
+.sidebar {
+    width: 250px; 
+    height: 100vh;
+    padding: 30px 20px; 
+    background-color: #005A8D; 
+    text-align: center;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+  }
+
+.sidebar-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+  
+.avatar {
+    width: 150px; 
+    height: 150px; 
+    border-radius: 50%;
+    margin-bottom: 20px; 
+  }
+
+.sidebar h1 {
+    color: #FFFFFF; 
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 5px; 
+}
+
+.sidebar h4 {
+    color: #ADD8E6; 
+    font-size: 0.9em;
+    margin-bottom: 20px; 
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px; 
+    width: 100%; 
+    align-items: flex-start; 
+    padding-left: 10px; 
+  }
+  
+.contact img {
+    height: 30px;
+    width: 30px;
+    margin-top: -5px;
+  }
+
+  .contact p {
+    margin: 10px 0;
+    display: flex;
+    column-gap: 15px;
+    align-items: center;
+  }
+
+  .contact span, .contact a { 
+    color: #88FFFF; 
+    text-decoration: none;
+    word-break: break-word;
+  }
+
+/* Content Area - Copied from aboutme.css */
+.content {
+    flex-grow: 1; 
+    padding: 30px; 
+    margin-left: 250px; 
+    background-color: #2A0000; 
+}
+
+/* Tabs Navigation - Copied from aboutme.css */
+.tabs {
+    display: flex;
+    justify-content: flex-start; 
+    border-bottom: 1px solid #2A0000; 
+    background-color: #7B0000; 
+    padding: 10px 0;
+    margin-bottom: 20px; 
+  }
+  
+  .tabs a {
+    color: #ADD8E6; 
+    text-decoration: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s; 
+  }
+  
+.tabs a:hover, .tabs a.active { 
+    background-color: rgba(255,255,255,0.05); 
+    color: #FFFFFF; 
+    border-radius: 4px;
+  }
+  
+/* About section styling (intro text for contact page) */
+  .about { /* Reusing .about class for the introductory text */
+    margin-bottom: 30px; /* Space before the form */
+  }
+
+  .about h2 {
+    color: #FFFFFF;
+    font-size: 1.8em; /* Prominent heading */
+    margin-bottom: 15px;
+  }
+
+  .about p {
+    color: #E0E0E0;
+    font-size: 1.05em;
+    line-height: 1.6;
+  }
+  
+/* Contact Form Section Styling */
+.connection .container { /* Specificity for the form's container if it's nested */
+    background-color: #0077B6; /* Blue background for the form area */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    max-width: 900px; /* Max width for the form container */
+    margin-left: auto; /* Center it if content area is wider */
+    margin-right: auto;
+    width: 92%; /* Ensure it takes up available space up to max-width */
+}
+  
+.form{
+    display: flex;
+    /* row-gap: 100px; */ /* Gap is handled by flex properties or margins */
+    align-items: flex-start; /* Align items to the top */
+    gap: 30px; /* Gap between image and form */
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+.form-image {
+    /* background-color: #ffffff; */ /* Removed unnecessary background */
+    /* background-color: rgb(176, 101, 101,0); */ /* Removed transparent background */
+    padding: 0; /* Remove padding if not needed, or adjust */
+    flex: 1; /* Allow image container to take space */
+    min-width: 280px; /* Minimum width before wrapping */
+    text-align: center; /* Center image if it's smaller than container */
+}
+
+.form-image img {
+    width: 100%; /* Make image responsive */
+    max-width: 350px; /* Max width for the image */
+    height: auto;
+    border-radius: 8px; /* Consistent border radius */
+    /* margin-top: 50px; */ /* Removed fixed margin, align with flex */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.form-area {
+    padding: 0; /* Remove padding if not needed, form elements have margin */
+    flex: 1.5; /* Allow form area to take more space */
+    min-width: 300px; /* Minimum width */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: #FFFFFF; /* White labels */
+    margin-bottom: 8px; /* Space below label */
+    font-size: 0.95em;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%; /* Full width inputs */
+    padding: 12px 15px; /* Comfortable padding */
+    margin-bottom: 20px;
+    border-radius: 6px; 
+    border: 1px solid #004772; /* Subtle border */
+    font-size: 1em;
+    background-color: #E0E0E0; /* Light background for inputs */
+    color: #121212; /* Dark text for inputs */
+    box-sizing: border-box; /* Include padding in width */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+    outline: none;
+    border-color: #88FFFF; /* Cyan border on focus */
+    box-shadow: 0 0 0 2px rgba(136, 255, 255, 0.3);
+}
+
+/* input[type="text"],
+input[type="email"] {
+    height: 40px; 
+} */ /* Height is controlled by padding and font-size */
+
+textarea {
+    resize: vertical; /* Allow vertical resize */
+    min-height: 120px; /* Minimum height for textarea */
+}
+
+form button[type="submit"] { /* Specificity for the submit button */
+    background-color: #C00000; /* Maroon button */
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.05em;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    font-weight: bold;
+    align-self: flex-start; /* Align button to the left */
+}
+
+form button[type="submit"]:hover {
+    background-color: #A00000; /* Darker maroon on hover */
+    transform: translateY(-1px);
+}
+
+/* --- End of Improved Mobile Menu Styles --- */
+
+/* --- Standard Mobile Menu Styles --- */
+.mobile-menu-button {
+    display: none; /* Hidden on desktop, shown via media query */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1005;
+    background-color: #005A8D;
+    color: #FFFFFF;
+    border: none;
+    padding: 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2em;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+.mobile-menu-button:hover {
+    background-color: #004772;
+}
+
+.mobile-menu-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1002;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.mobile-menu-backdrop.active {
+    display: block;
+    opacity: 1;
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: auto;
+    width: 85%;
+    max-width: 320px;
+    height: 100%;
+    background-color: #004772;
+    z-index: 1003;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    visibility: hidden;
+    box-shadow: -3px 0 10px rgba(0,0,0,0.2);
+}
+
+.mobile-nav.active {
+    opacity: 1;
+    transform: translateX(0);
+    visibility: visible;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.mobile-nav-header {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: auto;
+}
+
+button.close-menu {
+    background: none;
+    border: none;
+    color: #FFFFFF;
+    font-size: 1.6em;
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+}
+
+button.close-menu:hover {
+    color: #ADD8E6;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin-top: 20px;
+    list-style: none;
+    width: 100%;
+}
+
+.mobile-nav-links a {
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 18px 30px;
+    border-radius: 8px;
+    margin: 10px 0;
+    font-size: 1.25em;
+    transition: background-color 0.3s, color 0.3s;
+    text-align: center;
+    width: 80%;
+    max-width: 280px;
+    box-sizing: border-box;
+}
+
+.mobile-nav-links a:hover {
+    background-color: rgba(255,255,255,0.1);
+    color: #88FFFF;
+}
+/* --- End of Standard Mobile Menu Styles --- */
+
+/* --- Standard Mobile Media Query Adjustments for Menu --- */
+@media screen and (max-width: 768px) {
+    .mobile-menu-button {
+        display: block !important; /* Ensure button is visible */
+    }
+
+    /* Hide desktop tabs if they are identified by .tabs class */
+    .tabs {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .mobile-nav-links a {
+        padding: 15px 20px; /* Adjust padding for smaller screens */
+        font-size: 1em;    /* Adjust font size for smaller screens */
+    }
+}
+/* --- End of Standard Mobile Media Query Adjustments for Menu --- */
+
+/* Responsive Adjustments for Contact Page */
+@media screen and (max-width: 768px) {
+    body {
+        overflow-x: hidden; /* Yatay kaydırmayı engelle */
+    }
+
+    .container {
+        flex-direction: column;
+        max-width: 100%; 
+        margin: 0;
+        width: 100%; /* Tam genişlik */
+        padding: 0; /* Gerekirse padding sıfırla */
+        box-sizing: border-box; /* Kutu modelini düzelt */
+    }
+
+    .mobile-menu-button {
+        display: block !important; 
+    }
+
+    .tabs {
+        display: none; 
+    }
+
+    .sidebar {
+        display: none; /* Hide sidebar on mobile */
+    }
+
+    /* .contact-page .sidebar { 
+        display: flex !important; 
+    } */ /* Commented out to ensure sidebar is hidden */
+
+    .avatar {
+        width: 100px; 
+        height: 100px;
+        margin-bottom: 10px;
+    }
+
+    .sidebar h1 {
+        font-size: 1.2em;
+    }
+
+    .sidebar h4 {
+        font-size: 0.8em;
+        margin-bottom: 10px;
+    }
+
+    .contact {
+        align-items: center; 
+        padding-left: 0; 
+        row-gap: 10px;
+    }
+
+    .contact p {
+        justify-content: center;
+        font-size: 0.9em;
+    }
+    .contact img {
+        height: 24px;
+        width: 24px;
+    }
+
+    .content {
+        width: 100%;
+        margin-left: 0; 
+        padding: 20px 15px; 
+        box-sizing: border-box;
+        /* background-color: #3D0000; */ /* Bu zaten var, tekrar gerek yok */
+    }
+
+    .about h2 {
+        font-size: 1.5em;
+    }
+    .about p {
+        font-size: 1em;
+    }
+
+    .connection .container {
+        padding: 20px;
+    }
+
+    .form {
+        flex-direction: column; /* Stack image and form on mobile */
+        align-items: center; /* Center items when stacked */
+    }
+
+    .form-image {
+        margin-bottom: 20px; /* Space below image when stacked */
+        max-width: 300px; /* Adjust max width for mobile */
+    }
+
+    .form-area {
+        width: 100%; /* Form takes full width */
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        padding: 10px 12px;
+    }
+
+    form button[type="submit"] {
+        width: 100%; /* Full width button on mobile */
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 480px) {
+     .sidebar h1 {
+        font-size: 1.1em;
+    }
+
+    .sidebar h4 {
+        font-size: 0.7em;
+    }
+     .contact p {
+        font-size: 0.8em;
+    }
+    .contact img {
+        height: 20px;
+        width: 20px;
+    }
+    .mobile-nav-links a {
+        padding: 15px 20px;
+        font-size: 1em;
+    }
+    .about h2 {
+        font-size: 1.3em;
+    }
+    .about p {
+        font-size: 0.95em;
+    }
+}

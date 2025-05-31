@@ -1,204 +1,309 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projects - Yasin Kuru</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/framer-motion@4.1.17/dist/framer-motion.umd.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-    .bg-primary-bordeaux { background-color: #800000; }
-    .text-primary-bordeaux { color: #800000; }
-    .border-primary-bordeaux { border-color: #800000; }
-    .bg-primary-blue { background-color: #004080; }
-    .text-primary-blue { color: #004080; }
-    .border-primary-blue { border-color: #004080; }
-
-    .project-card {
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    }
-    .tech-icon {
-      width: 24px; height: 24px; margin-right: 8px; object-fit: contain;
-    }
-     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .fade-in-section {
-      animation: fadeIn 0.5s ease-out forwards;
-    }
-    .fade-in-item {
-      opacity: 0;
-      animation: fadeIn 0.5s ease-out forwards;
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Yasin Kuru</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-burgundy': '#800000',
+                        'primary-blue': '#004080',
+                        'neutral-gray': '#F3F4F6',
+                        'dark-text': '#1F2937',
+                        'light-text': '#FFFFFF',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .sticky-nav {
+            position: -webkit-sticky; /* Safari */
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        .project-card-image {
+            height: 200px; /* Fixed height for project images */
+            object-fit: cover; /* Ensures images cover the area well */
+        }
+        .tech-icon {
+            height: 24px; /* Consistent size for tech icons */
+            width: 24px;
+            margin-right: 8px; /* Spacing between icons */
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-neutral-gray text-dark-text">
 
-  <!-- Navbar -->
-  <nav id="navbar" class="bg-primary-bordeaux shadow-lg sticky top-0 z-50 transition-all duration-300">
-    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-      <a href="index.html" class="text-2xl font-bold text-white hover:text-gray-200">Yasin Kuru</a>
-      <div class="hidden md:flex space-x-4">
-        <a href="index.html" class="py-2 px-3 text-white hover:bg-primary-blue rounded transition duration-300">About Me</a>
-        <a href="skills.html" class="py-2 px-3 text-white hover:bg-primary-blue rounded transition duration-300">Skills</a>
-        <a href="projects.html" class="py-2 px-3 text-white bg-primary-blue rounded transition duration-300">Projects</a>
-        <a href="contact.html" class="py-2 px-3 text-white hover:bg-primary-blue rounded transition duration-300">Contact</a>
-      </div>
-      <!-- Mobile Menu Button -->
-      <div class="md:hidden">
-        <button id="mobile-menu-button" class="text-white focus:outline-none">
-          <i class="fas fa-bars text-2xl"></i>
-        </button>
-      </div>
-    </div>
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="md:hidden hidden bg-primary-bordeaux">
-      <a href="index.html" class="block py-2 px-4 text-sm text-white hover:bg-primary-blue transition duration-300">About Me</a>
-      <a href="skills.html" class="block py-2 px-4 text-sm text-white hover:bg-primary-blue transition duration-300">Skills</a>
-      <a href="projects.html" class="block py-2 px-4 text-sm text-white bg-primary-blue transition duration-300">Projects</a>
-      <a href="contact.html" class="block py-2 px-4 text-sm text-white hover:bg-primary-blue transition duration-300">Contact</a>
-    </div>
-  </nav>
-
-  <!-- Main Content -->
-  <div class="container mx-auto px-6 py-8">
-    <div class="flex flex-wrap -mx-4">
-
-      <!-- Sidebar -->
-      <aside class="w-full md:w-1/4 px-4 mb-8 md:mb-0 fade-in-section" style="animation-delay: 0.2s;">
-        <div class="bg-white p-6 rounded-lg shadow-xl">
-          <img src="img/profile-photo.jpg" alt="Yasin Kuru" class="avatar w-32 h-32 mx-auto rounded-full mb-4 border-4 border-primary-blue">
-          <h1 class="text-2xl font-bold text-center text-primary-bordeaux mb-1">Yasin Kuru</h1>
-          <h4 class="text-md text-gray-600 text-center mb-4">MIS Student</h4>
-          <div class="space-y-3">
-            <p class="text-sm text-gray-700 flex items-center"><img src="img/contact icon/linkedin.png" alt="LinkedIn" class="w-5 h-5 mr-2"><a href="https://www.linkedin.com/in/yasin-kuru-mis" target="_blank" class="hover:text-primary-blue transition duration-300">yasin_kuru-mis</a></p>
-            <p class="text-sm text-gray-700 flex items-center"><img src="img/contact icon/mail.png" alt="Email" class="w-5 h-5 mr-2"><a href="mailto:ymaisisn61@gmail.com" target="_blank" class="hover:text-primary-blue transition duration-300">ymaisisn61@gmail.com</a></p>
-            <p class="text-sm text-gray-700 flex items-center"><img src="img/contact icon/phone.png" alt="Phone" class="w-5 h-5 mr-2"><span>Send an email for more</span></p>
-          </div>
+    <!-- Navigation Bar -->
+    <nav class="sticky-nav bg-white shadow-md">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-primary-burgundy hover:text-primary-blue">Yasin Kuru</a>
+            <div class="hidden md:flex space-x-4">
+                <a href="index.html" class="text-dark-text hover:text-primary-burgundy px-3 py-2 rounded-md text-sm font-medium">About Me</a>
+                <a href="skills.html" class="text-dark-text hover:text-primary-burgundy px-3 py-2 rounded-md text-sm font-medium">Skills</a>
+                <a href="projects.html" class="text-primary-burgundy font-semibold px-3 py-2 rounded-md text-sm">Projects</a>
+                <a href="contact.html" class="text-dark-text hover:text-primary-burgundy px-3 py-2 rounded-md text-sm font-medium">Contact</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-dark-text focus:outline-none">
+                    <i class="fas fa-bars fa-lg"></i>
+                </button>
+            </div>
         </div>
-      </aside>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+            <a href="index.html" class="block text-dark-text hover:bg-primary-burgundy hover:text-light-text px-4 py-2 text-sm">About Me</a>
+            <a href="skills.html" class="block text-dark-text hover:bg-primary-burgundy hover:text-light-text px-4 py-2 text-sm">Skills</a>
+            <a href="projects.html" class="block bg-primary-burgundy text-light-text px-4 py-2 text-sm font-semibold">Projects</a>
+            <a href="contact.html" class="block text-dark-text hover:bg-primary-burgundy hover:text-light-text px-4 py-2 text-sm">Contact</a>
+        </div>
+    </nav>
 
-      <!-- Content Area -->
-      <main class="w-full md:w-3/4 px-4 fade-in-section" style="animation-delay: 0.4s;">
-        <section class="bg-white p-6 rounded-lg shadow-xl">
-          <h2 class="text-3xl font-semibold text-primary-bordeaux mb-8 border-b-2 border-primary-blue pb-2"><i class="fas fa-project-diagram mr-2"></i>My Projects</h2>
-          <div id="project-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Project items will be injected here by script -->
-          </div>
+    <!-- Main Content Area -->
+    <main class="container mx-auto px-6 py-12">
+        <section id="projects-list">
+            <h2 class="text-3xl font-bold text-primary-burgundy mb-10 text-center"><i class="fas fa-tasks mr-2"></i>My Projects</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1: Linkedin Automation -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="img/ekle Linkedin Automation img/profile.png" alt="Linkedin Automation Project Image" class="project-card-image w-full">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Linkedin Automation</h3>
+                        <p class="text-gray-700 text-sm mb-4 flex-grow">Automates LinkedIn tasks using Python and Selenium. Enhances productivity for LinkedIn activities.</p>
+                        <div class="mb-4 flex items-center">
+                            <img src="img/app icons/Python.png" alt="Python" class="tech-icon">
+                            <img src="img/app icons/selenium.png" alt="Selenium" class="tech-icon">
+                        </div>
+                        <a href="projelinkedin.html" target="_blank" class="mt-auto bg-primary-burgundy hover:bg-opacity-80 text-light-text font-semibold py-2 px-4 rounded-md text-center transition duration-300">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2: Emlakjet House Price Prediction -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="img/ekle emlakjet house price prediction img/profile.png" alt="Emlakjet House Price Prediction Project Image" class="project-card-image w-full">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Emlakjet House Price Prediction</h3>
+                        <p class="text-gray-700 text-sm mb-4 flex-grow">Predicts house prices from Emlakjet listings using Python and Scikit-learn. Applies machine learning to real estate data.</p>
+                        <div class="mb-4 flex items-center">
+                            <img src="img/app icons/Python.png" alt="Python" class="tech-icon">
+                            <img src="img/app icons/scikit-learn.png" alt="Scikit-learn" class="tech-icon">
+                        </div>
+                        <a href="projemlakjet.html" target="_blank" class="mt-auto bg-primary-burgundy hover:bg-opacity-80 text-light-text font-semibold py-2 px-4 rounded-md text-center transition duration-300">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3: Edurese Mobile App -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="img/ekle edurese mobil app img/profile.png" alt="Edurese Mobile App Project Image" class="project-card-image w-full">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Edurese Mobile App</h3>
+                        <p class="text-gray-700 text-sm mb-4 flex-grow">A mobile application for Edurese Academy, built with Flutter. Provides course access and information on the go.</p>
+                        <div class="mb-4 flex items-center">
+                            <img src="img/app icons/flutter.png" alt="Flutter" class="tech-icon">
+                        </div>
+                        <a href="projeedurese.html" target="_blank" class="mt-auto bg-primary-burgundy hover:bg-opacity-80 text-light-text font-semibold py-2 px-4 rounded-md text-center transition duration-300">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 4: Canias -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="img/ekle canias img/profile.jpg" alt="Canias Project Image" class="project-card-image w-full">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Canias ERP Project</h3>
+                        <p class="text-gray-700 text-sm mb-4 flex-grow">Details related to a Canias ERP implementation or project. (Further details on project page)</p>
+                        <div class="mb-4 flex items-center">
+                            <!-- Add Canias/ERP specific icons if available, or leave empty -->
+                        </div>
+                        <a href="projecanias.html" target="_blank" class="mt-auto bg-primary-burgundy hover:bg-opacity-80 text-light-text font-semibold py-2 px-4 rounded-md text-center transition duration-300">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 5: Soccer Player Position Prediction -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="img/ekle soccerimg/profile.png" alt="Soccer Player Position Prediction Project Image" class="project-card-image w-full">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Soccer Player Position Prediction</h3>
+                        <p class="text-gray-700 text-sm mb-4 flex-grow">Predicts soccer player positions based on attributes using Python and Scikit-learn. A sports analytics project.</p>
+                        <div class="mb-4 flex items-center">
+                            <img src="img/app icons/Python.png" alt="Python" class="tech-icon">
+                            <img src="img/app icons/scikit-learn.png" alt="Scikit-learn" class="tech-icon">
+                        </div>
+                        <a href="projesoccer.html" target="_blank" class="mt-auto bg-primary-burgundy hover:bg-opacity-80 text-light-text font-semibold py-2 px-4 rounded-md text-center transition duration-300">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 6: Anonmeet -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="img/ekle anonmeet img/profile.png" alt="Anonmeet Project Image" class="project-card-image w-full">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Anonmeet</h3>
+                        <p class="text-gray-700 text-sm mb-4 flex-grow">Anonymous meeting application developed with Flutter and Firebase, focusing on privacy.</p>
+                        <div class="mb-4 flex items-center">
+                            <img src="img/app icons/flutter.png" alt="Flutter" class="tech-icon">
+                            <img src="img/app icons/firebase.png" alt="Firebase" class="tech-icon">
+                        </div>
+                        <a href="projeanonmeet.html" target="_blank" class="mt-auto bg-primary-burgundy hover:bg-opacity-80 text-light-text font-semibold py-2 px-4 rounded-md text-center transition duration-300">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project Card 7: Hospital Management System -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="img/Hospital management system img/profil.png" alt="Hospital Management System Project Image" class="project-card-image w-full">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Hospital Management System</h3>
+                        <p class="text-gray-700 text-sm mb-4 flex-grow">A desktop application for managing hospital operations, developed using C# and MS SQL Server.</p>
+                        <div class="mb-4 flex items-center">
+                            <img src="img/app icons/(CSharp).png" alt="C#" class="tech-icon">
+                            <img src="img/app icons/microsoft-sql-server-logo-svgrepo-com.png" alt="MS SQL Server" class="tech-icon">
+                        </div>
+                        <a href="projehospital.html" target="_blank" class="mt-auto bg-primary-burgundy hover:bg-opacity-80 text-light-text font-semibold py-2 px-4 rounded-md text-center transition duration-300">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 8: My Movie Site -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="img/Film website project img/profile.png" alt="My Movie Site Project Image" class="project-card-image w-full">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">My Movie Site</h3>
+                        <p class="text-gray-700 text-sm mb-4 flex-grow">A website for browsing and discovering movies, built with HTML, CSS, and JavaScript.</p>
+                        <div class="mb-4 flex items-center">
+                            <img src="img/app icons/HTML5.png" alt="HTML5" class="tech-icon">
+                            <img src="img/app icons/CSS3.png" alt="CSS3" class="tech-icon">
+                            <img src="img/app icons/JavaScript.png" alt="JavaScript" class="tech-icon">
+                        </div>
+                        <a href="projefilm.html" target="_blank" class="mt-auto bg-primary-burgundy hover:bg-opacity-80 text-light-text font-semibold py-2 px-4 rounded-md text-center transition duration-300">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 9: QR Code Generator -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="img/QR code generator/profile.png" alt="QR Code Generator Project Image" class="project-card-image w-full">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">QR Code Generator</h3>
+                        <p class="text-gray-700 text-sm mb-4 flex-grow">A Python utility to generate QR codes for various types of data.</p>
+                        <div class="mb-4 flex items-center">
+                            <img src="img/app icons/Python.png" alt="Python" class="tech-icon">
+                        </div>
+                        <a href="projeqrcode.html" target="_blank" class="mt-auto bg-primary-burgundy hover:bg-opacity-80 text-light-text font-semibold py-2 px-4 rounded-md text-center transition duration-300">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 10: Football Goal Analysis -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="img/footbal goal analysis img/profile.png" alt="Football Goal Analysis Project Image" class="project-card-image w-full">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Football Goal Analysis</h3>
+                        <p class="text-gray-700 text-sm mb-4 flex-grow">Analyzes football match data to find insights on goals, using Python and web scraping techniques.</p>
+                        <div class="mb-4 flex items-center">
+                            <img src="img/app icons/Python.png" alt="Python" class="tech-icon">
+                            <img src="img/app icons/webscrap.jpg" alt="Web Scraping" class="tech-icon">
+                        </div>
+                        <a href="projegoalanalysis.html" target="_blank" class="mt-auto bg-primary-burgundy hover:bg-opacity-80 text-light-text font-semibold py-2 px-4 rounded-md text-center transition duration-300">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Project Card 11: Data Visualization -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="img/Data Visualization img/profile.png" alt="Data Visualization Project Image" class="project-card-image w-full">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Data Visualization (Power BI)</h3>
+                        <p class="text-gray-700 text-sm mb-4 flex-grow">Showcases data visualization skills using Power BI to create insightful dashboards and reports.</p>
+                        <div class="mb-4 flex items-center">
+                            <img src="img/app icons/power-bi-icon.png" alt="Power BI" class="tech-icon">
+                        </div>
+                        <a href="projepowerbi.html" target="_blank" class="mt-auto bg-primary-burgundy hover:bg-opacity-80 text-light-text font-semibold py-2 px-4 rounded-md text-center transition duration-300">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 12: Database Design and Management -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden flex flex-col">
+                    <img src="img/Database Design/profile.png" alt="Database Design Project Image" class="project-card-image w-full">
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Database Design and Management</h3>
+                        <p class="text-gray-700 text-sm mb-4 flex-grow">Focuses on database design principles and management using MySQL.</p>
+                        <div class="mb-4 flex items-center">
+                            <img src="img/app icons/MySQL-PNG-HD-Images.png" alt="MySQL" class="tech-icon">
+                        </div>
+                        <a href="projedbdesign.html" target="_blank" class="mt-auto bg-primary-burgundy hover:bg-opacity-80 text-light-text font-semibold py-2 px-4 rounded-md text-center transition duration-300">
+                            View Project <i class="fas fa-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </section>
-      </main>
-    </div>
-  </div>
+    </main>
 
-  <footer class="bg-primary-blue text-white text-center p-6 mt-12">
-    <p>&copy; 2024 Yasin Kuru. All rights reserved.</p>
-  </footer>
+    <!-- Footer -->
+    <footer class="bg-primary-blue text-light-text py-8 text-center">
+        <div class="container mx-auto px-6">
+            <div class="mb-4">
+                <a href="https://www.linkedin.com/in/yasin-kuru-mis" target="_blank" class="text-light-text hover:text-primary-burgundy mx-2 text-xl"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:ymaisisn61@gmail.com" class="text-light-text hover:text-primary-burgundy mx-2 text-xl"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2024 Yasin Kuru. All rights reserved.</p>
+            <p>Designed with <i class="fas fa-heart text-primary-burgundy"></i> using Tailwind CSS</p>
+        </div>
+    </footer>
 
-  <script>
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuButton.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-      const icon = mobileMenuButton.querySelector('i');
-      icon.classList.toggle('fa-bars');
-      icon.classList.toggle('fa-times');
-    });
+    <script>
+        // Mobile menu toggle
+        const menuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    // Navbar scroll effect
-    const navbar = document.getElementById('navbar');
-    let lastScrollTop = 0;
-    window.addEventListener('scroll', function() {
-      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      if (scrollTop > lastScrollTop) {
-        navbar.style.top = '-80px'; 
-      } else {
-        navbar.style.top = '0';
-      }
-      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    });
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
-    const projects = [
-      { name: "Linkedin Automation", imgSrc: "img/ekle Linkedin Automation img/profile.png", techIcons: ["img/app icons/Python.png", "img/app icons/selenium.png"], link: "projelinkedin.html" },
-      { name: "Emlakjet House Price Prediction", imgSrc: "img/ekle emlakjet house price prediction img/profile.png", techIcons: ["img/app icons/Python.png", "img/app icons/scikit-learn.png"], link: "projemlakjet.html" },
-      { name: "Edurese Mobile App", imgSrc: "img/ekle edurese mobil app img/profile.png", techIcons: ["img/app icons/flutter.png"], link: "projeedurese.html" },
-      { name: "Canias", imgSrc: "img/ekle canias img/profile.jpg", techIcons: [], link: "projecanias.html" },
-      { name: "Soccer Player Position Prediction", imgSrc: "img/ekle soccerimg/profile.png", techIcons: ["img/app icons/Python.png", "img/app icons/scikit-learn.png"], link: "projesoccer.html" },
-      { name: "Anonmeet", imgSrc: "img/ekle anonmeet img/profile.png", techIcons: ["img/app icons/flutter.png", "img/app icons/firebase.png"], link: "projeanonmeet.html" },
-      { name: "Hospital Management System", imgSrc: "img/Hospital management system img/profil.png", techIcons: ["img/app icons/(CSharp).png", "img/app icons/microsoft-sql-server-logo-svgrepo-com.png"], link: "projehospital.html" },
-      { name: "My Movie Site", imgSrc: "img/Film website project img/profile.png", techIcons: ["img/app icons/HTML5.png", "img/app icons/CSS3.png", "img/app icons/JavaScript.png"], link: "projefilm.html" },
-      { name: "QR Code Generator", imgSrc: "img/QR code generator/profile.png", techIcons: ["img/app icons/Python.png"], link: "projeqrcode.html" },
-      { name: "Football Goal Analysis", imgSrc: "img/footbal goal analysis img/profile.png", techIcons: ["img/app icons/Python.png", "img/app icons/webscrap.jpg"], link: "projegoalanalysis.html" },
-      { name: "Data Visualization", imgSrc: "img/Data Visualization img/profile.png", techIcons: ["img/app icons/power-bi-icon.png"], link: "projepowerbi.html" },
-      { name: "Database Design and Management", imgSrc: "img/Database Design/profile.png", techIcons: ["img/app icons/MySQL-PNG-HD-Images.png"], link: "projedbdesign.html" },
-    ];
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                if (this.getAttribute('href') !== "#" && document.querySelector(this.getAttribute('href'))) {
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
 
-    const projectGrid = document.getElementById('project-grid');
-    const motion = window.motion;
-
-    projects.forEach((project, index) => {
-      const projectCard = document.createElement('div');
-      projectCard.className = 'project-card bg-white rounded-lg shadow-lg overflow-hidden flex flex-col fade-in-item';
-      projectCard.style.animationDelay = `${index * 0.1}s`;
-
-      const img = document.createElement('img');
-      img.src = project.imgSrc;
-      img.alt = project.name;
-      img.className = 'w-full h-48 object-cover';
-
-      const contentDiv = document.createElement('div');
-      contentDiv.className = 'p-6 flex flex-col flex-grow';
-
-      const title = document.createElement('h3');
-      title.className = 'text-xl font-semibold text-primary-bordeaux mb-2';
-      title.textContent = project.name;
-
-      const iconsDiv = document.createElement('div');
-      iconsDiv.className = 'flex items-center mb-4';
-      project.techIcons.forEach(iconSrc => {
-        const iconImg = document.createElement('img');
-        iconImg.src = iconSrc;
-        iconImg.alt = 'Tech icon';
-        iconImg.className = 'tech-icon';
-        iconsDiv.appendChild(iconImg);
-      });
-
-      const buttonLink = document.createElement('a');
-      buttonLink.href = project.link;
-      buttonLink.target = '_blank';
-      buttonLink.className = 'mt-auto inline-block bg-primary-blue hover:bg-opacity-80 text-white font-semibold py-2 px-4 rounded transition duration-300 text-center';
-      buttonLink.textContent = 'View Project →';
-
-      contentDiv.appendChild(title);
-      contentDiv.appendChild(iconsDiv);
-      contentDiv.appendChild(buttonLink);
-      projectCard.appendChild(img);
-      projectCard.appendChild(contentDiv);
-      projectGrid.appendChild(projectCard);
-      
-      // Framer motion for individual cards if desired, or use the CSS animation
-       if (motion) {
-         motion.animate(projectCard, { opacity: [0,1], y: [20,0] }, { delay: index * 0.1, duration: 0.5 });
-       }
-    });
-    
-    // Framer Motion for entry animations for sections
-    document.querySelectorAll('.fade-in-section').forEach((el, index) => {
-       if (motion) {
-        motion.animate(el, { opacity: [0, 1], y: [20, 0] }, { duration: 0.5, delay: el.style.animationDelay ? parseFloat(el.style.animationDelay) : index * 0.1 })
-       }
-    });
-
-  </script>
 </body>
 </html>

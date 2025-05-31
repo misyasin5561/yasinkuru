@@ -1,240 +1,220 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skills - Yasin Kuru</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary-burgundy': '#800000',
-                        'primary-blue': '#004080',
-                        'neutral-gray': '#F3F4F6', // Light gray for backgrounds
-                        'dark-text': '#1F2937',    // Dark gray for text
-                        'light-text': '#FFFFFF',   // White text
-                        'skill-bar-bg': '#E5E7EB', // bg for skill bar
-                        'skill-bar-fill': '#004080', // fill for skill bar (primary blue)
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .sticky-nav {
-            position: -webkit-sticky; /* Safari */
-            position: sticky;
-            top: 0;
-            z-index: 50;
-        }
-        .progress-bar-skill {
-            height: 8px; /* Tailwind's h-2 is 8px */
-            background-color: tailwind.theme.colors['skill-bar-bg'];
-            border-radius: theme('borderRadius.full'); /* Using Tailwind's full border radius */
-            overflow: hidden;
-        }
-        .progress-skill {
-            height: 100%;
-            background-color: tailwind.theme.colors['skill-bar-fill'];
-            transition: width 0.5s ease-in-out;
-            text-align: right;
-            padding-right: 5px;
-            color: white;
-            font-size: 10px;
-            line-height: 8px; /* Align with height */
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skills - Yasin Kuru</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/framer-motion@4.1.17/dist/framer-motion.umd.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif; 
+    }
+    .bg-primary-bordeaux { background-color: #800000; }
+    .text-primary-bordeaux { color: #800000; }
+    .border-primary-bordeaux { border-color: #800000; }
+    .bg-primary-blue { background-color: #004080; }
+    .text-primary-blue { color: #004080; }
+    .border-primary-blue { border-color: #004080; }
+
+    .progress-bar-skill {
+      background-color: #e0e0de;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      height: 1.25rem; /* h-5 */
+    }
+    .progress-skill {
+      background-color: #004080; /* primary-blue */
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 0.75rem; /* text-xs */
+      font-weight: bold;
+      transition: width 0.5s ease-in-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .fade-in-section {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="bg-neutral-gray text-dark-text">
+<body class="bg-gray-100 text-gray-900">
 
-    <!-- Navigation Bar -->
-    <nav class="sticky-nav bg-white shadow-md">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold text-primary-burgundy hover:text-primary-blue">Yasin Kuru</a>
-            <div class="hidden md:flex space-x-4">
-                <a href="index.html" class="text-dark-text hover:text-primary-burgundy px-3 py-2 rounded-md text-sm font-medium">About Me</a>
-                <a href="skills.html" class="text-primary-burgundy font-semibold px-3 py-2 rounded-md text-sm">Skills</a>
-                <a href="projects.html" class="text-dark-text hover:text-primary-burgundy px-3 py-2 rounded-md text-sm font-medium">Projects</a>
-                <a href="contact.html" class="text-dark-text hover:text-primary-burgundy px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-dark-text focus:outline-none">
-                    <i class="fas fa-bars fa-lg"></i>
-                </button>
-            </div>
+  <!-- Navbar -->
+  <nav id="navbar" class="bg-primary-bordeaux shadow-lg sticky top-0 z-50 transition-all duration-300">
+    <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+      <a href="index.html" class="text-2xl font-bold text-white hover:text-gray-200">Yasin Kuru</a>
+      <div class="hidden md:flex space-x-4">
+        <a href="index.html" class="py-2 px-3 text-white hover:bg-primary-blue rounded transition duration-300">About Me</a>
+        <a href="skills.html" class="py-2 px-3 text-white bg-primary-blue rounded transition duration-300">Skills</a>
+        <a href="projects.html" class="py-2 px-3 text-white hover:bg-primary-blue rounded transition duration-300">Projects</a>
+        <a href="contact.html" class="py-2 px-3 text-white hover:bg-primary-blue rounded transition duration-300">Contact</a>
+      </div>
+      <!-- Mobile Menu Button -->
+      <div class="md:hidden">
+        <button id="mobile-menu-button" class="text-white focus:outline-none">
+          <i class="fas fa-bars text-2xl"></i>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="md:hidden hidden bg-primary-bordeaux">
+      <a href="index.html" class="block py-2 px-4 text-sm text-white hover:bg-primary-blue transition duration-300">About Me</a>
+      <a href="skills.html" class="block py-2 px-4 text-sm text-white bg-primary-blue transition duration-300">Skills</a>
+      <a href="projects.html" class="block py-2 px-4 text-sm text-white hover:bg-primary-blue transition duration-300">Projects</a>
+      <a href="contact.html" class="block py-2 px-4 text-sm text-white hover:bg-primary-blue transition duration-300">Contact</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container mx-auto px-6 py-8">
+    <div class="flex flex-wrap -mx-4">
+
+      <!-- Sidebar -->
+       <aside class="w-full md:w-1/4 px-4 mb-8 md:mb-0 fade-in-section" style="animation-delay: 0.2s;">
+        <div class="bg-white p-6 rounded-lg shadow-xl">
+          <img src="img/profile-photo.jpg" alt="Yasin Kuru" class="avatar w-32 h-32 mx-auto rounded-full mb-4 border-4 border-primary-blue">
+          <h1 class="text-2xl font-bold text-center text-primary-bordeaux mb-1">Yasin Kuru</h1>
+          <h4 class="text-md text-gray-600 text-center mb-4">MIS Student</h4>
+          <div class="space-y-3">
+            <p class="text-sm text-gray-700 flex items-center"><img src="img/contact icon/linkedin.png" alt="LinkedIn" class="w-5 h-5 mr-2"><a href="https://www.linkedin.com/in/yasin-kuru-mis" target="_blank" class="hover:text-primary-blue transition duration-300">yasin_kuru-mis</a></p>
+            <p class="text-sm text-gray-700 flex items-center"><img src="img/contact icon/mail.png" alt="Email" class="w-5 h-5 mr-2"><a href="mailto:ymaisisn61@gmail.com" target="_blank" class="hover:text-primary-blue transition duration-300">ymaisisn61@gmail.com</a></p>
+            <p class="text-sm text-gray-700 flex items-center"><img src="img/contact icon/phone.png" alt="Phone" class="w-5 h-5 mr-2"><span>Send an email for more</span></p>
+          </div>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
-            <a href="index.html" class="block text-dark-text hover:bg-primary-burgundy hover:text-light-text px-4 py-2 text-sm">About Me</a>
-            <a href="skills.html" class="block bg-primary-burgundy text-light-text px-4 py-2 text-sm font-semibold">Skills</a>
-            <a href="projects.html" class="block text-dark-text hover:bg-primary-burgundy hover:text-light-text px-4 py-2 text-sm">Projects</a>
-            <a href="contact.html" class="block text-dark-text hover:bg-primary-burgundy hover:text-light-text px-4 py-2 text-sm">Contact</a>
-        </div>
-    </nav>
+      </aside>
 
-    <!-- Main Content Area -->
-    <main class="container mx-auto px-6 py-12">
-        <section id="skills-knowledge" class="mb-16">
-            <h2 class="text-3xl font-bold text-primary-burgundy mb-8 text-center"><i class="fas fa-cogs mr-2"></i>Skills and Knowledge</h2>
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Technical Skills -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-primary-blue mb-6">Technical Skills</h3>
-                    <div class="space-y-5">
-                        <div>
-                            <p class="font-medium text-dark-text mb-1">Database Management (MySQL)</p>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 progress-bar-skill">
-                                <div class="bg-primary-blue h-2.5 rounded-full progress-skill" style="width: 70%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="font-medium text-dark-text mb-1">Data Visualization (PowerBI, Tableau)</p>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 progress-bar-skill">
-                                <div class="bg-primary-blue h-2.5 rounded-full progress-skill" style="width: 75%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="font-medium text-dark-text mb-1">Office Apps & Productivity Tools (Word, Excel, PowerPoint)</p>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 progress-bar-skill">
-                                <div class="bg-primary-blue h-2.5 rounded-full progress-skill" style="width: 70%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="font-medium text-dark-text mb-1">Web Scraping & Web Automation (Python & Selenium)</p>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 progress-bar-skill">
-                                <div class="bg-primary-blue h-2.5 rounded-full progress-skill" style="width: 95%"></div>
-                            </div>
-                        </div>
-                         <div>
-                            <p class="font-medium text-dark-text mb-1">Object Oriented Programming (C#)</p>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 progress-bar-skill">
-                                <div class="bg-primary-blue h-2.5 rounded-full progress-skill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="font-medium text-dark-text mb-1">Web Programming (HTML, CSS, JavaScript)</p>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 progress-bar-skill">
-                                <div class="bg-primary-blue h-2.5 rounded-full progress-skill" style="width: 70%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Soft Skills & Other -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-primary-blue mb-6">Professional Skills</h3>
-                     <div class="space-y-5">
-                        <div>
-                            <p class="font-medium text-dark-text mb-1">Financial Statement Analysis</p>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 progress-bar-skill">
-                                <div class="bg-primary-blue h-2.5 rounded-full progress-skill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <p class="font-medium text-dark-text mb-1">Presentation Skills</p>
-                            <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 progress-bar-skill">
-                                <div class="bg-primary-blue h-2.5 rounded-full progress-skill" style="width: 70%"></div>
-                            </div>
-                        </div>
-                        <!-- Add other professional skills here if any -->
-                    </div>
-                </div>
+      <!-- Content Area -->
+      <main class="w-full md:w-3/4 px-4">
+        <section class="bg-white p-6 rounded-lg shadow-xl mb-8 fade-in-section" style="animation-delay: 0.4s;">
+          <h2 class="text-3xl font-semibold text-primary-bordeaux mb-6 border-b-2 border-primary-blue pb-2"><i class="fas fa-laptop-code mr-2"></i>Skills and Knowledge</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <p class="font-semibold text-gray-700 mb-1">Database Management (MySQL)</p>
+              <div class="progress-bar-skill"><div class="progress-skill" style="width: 70%;">70%</div></div>
             </div>
+            <div>
+              <p class="font-semibold text-gray-700 mb-1">Data Visualization (PowerBI, Tableau)</p>
+              <div class="progress-bar-skill"><div class="progress-skill" style="width: 75%;">75%</div></div>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-700 mb-1">Office Apps and Productivity Tools (Word, Excel, PowerPoint)</p>
+              <div class="progress-bar-skill"><div class="progress-skill" style="width: 70%;">70%</div></div>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-700 mb-1">Web Scraping and Web Automation (Python & Selenium)</p>
+              <div class="progress-bar-skill"><div class="progress-skill" style="width: 95%;">95%</div></div>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-700 mb-1">Financial Statement Analysis</p>
+              <div class="progress-bar-skill"><div class="progress-skill" style="width: 85%;">85%</div></div>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-700 mb-1">Object Oriented Programming (C#)</p>
+              <div class="progress-bar-skill"><div class="progress-skill" style="width: 85%;">85%</div></div>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-700 mb-1">Web Programming (HTML, CSS, JavaScript)</p>
+              <div class="progress-bar-skill"><div class="progress-skill" style="width: 70%;">70%</div></div>
+            </div>
+            <div>
+              <p class="font-semibold text-gray-700 mb-1">Presentation Skills</p>
+              <div class="progress-bar-skill"><div class="progress-skill" style="width: 70%;">70%</div></div>
+            </div>
+          </div>
         </section>
 
-        <section id="certificates-languages" class="mb-16">
-            <div class="grid md:grid-cols-2 gap-8">
-                <!-- Certificates -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-primary-blue mb-6"><i class="fas fa-certificate mr-2"></i>Certificates</h3>
-                    <ul class="space-y-4">
-                        <li class="border-b border-neutral-gray pb-3 last:border-b-0 last:pb-0">
-                            <a href="certificates/Financial Literacy.jpg" target="_blank" class="text-lg text-dark-text hover:text-primary-burgundy font-medium">Financial Literacy</a>
-                            <p class="text-sm text-gray-600">November 2024</p>
-                        </li>
-                        <li class="border-b border-neutral-gray pb-3 last:border-b-0 last:pb-0">
-                            <a href="certificates/Cisco.pdf" target="_blank" class="text-lg text-dark-text hover:text-primary-burgundy font-medium">Cyber Security Essentials (Cisco)</a>
-                            <p class="text-sm text-gray-600">November 2023</p>
-                        </li>
-                        <li class="border-b border-neutral-gray pb-3 last:border-b-0 last:pb-0">
-                            <a href="certificates/Rprogramming.pdf" target="_blank" class="text-lg text-dark-text hover:text-primary-burgundy font-medium">R Programming Course (Udemy)</a>
-                            <p class="text-sm text-gray-600">November 2024</p> <!-- Assuming this date is correct, like the first one -->
-                        </li>
-                        <li>
-                            <h4 class="text-lg text-dark-text font-medium">Occupational Health and Safety Training</h4>
-                            <p class="text-sm text-gray-600">October 2022</p>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Languages -->
-                <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h3 class="text-2xl font-semibold text-primary-blue mb-6"><i class="fas fa-language mr-2"></i>Languages</h3>
-                    <ul class="space-y-4">
-                        <li>
-                            <p class="text-lg font-medium text-dark-text">Turkish</p>
-                            <div class="flex items-center">
-                                <i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i>
-                                <span class="ml-2 text-sm text-gray-600">(Native)</span>
-                            </div>
-                        </li>
-                        <li>
-                            <p class="text-lg font-medium text-dark-text">English</p>
-                             <div class="flex items-center">
-                                <i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="fas fa-star text-yellow-400"></i><i class="far fa-star text-yellow-400"></i><i class="far fa-star text-yellow-400"></i>
-                                 <span class="ml-2 text-sm text-gray-600">(Professional Working Proficiency)</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <section class="bg-white p-6 rounded-lg shadow-xl fade-in-section" style="animation-delay: 0.6s;">
+            <h2 class="text-2xl font-semibold text-primary-bordeaux mb-6 border-b-2 border-primary-blue pb-2"><i class="fas fa-certificate mr-2"></i>Certificates</h2>
+            <div class="space-y-4">
+              <div class="group">
+                <h3 class="text-lg font-semibold text-gray-800 hover:text-primary-blue transition duration-300"><a href="certificates/Financial Literacy.jpg" target="_blank">Financial Literacy</a></h3>
+                <p class="text-sm text-gray-500">November 2024</p>
+              </div>
+              <div class="group">
+                <h3 class="text-lg font-semibold text-gray-800 hover:text-primary-blue transition duration-300"><a href="certificates/Cisco.pdf" target="_blank">Cyber Security Essentials (Cisco)</a></h3>
+                <p class="text-sm text-gray-500">November 2023</p>
+              </div>
+              <div class="group">
+                <h3 class="text-lg font-semibold text-gray-800 hover:text-primary-blue transition duration-300"><a href="certificates/Rprogramming.pdf" target="_blank">R Programming Course (Udemy)</a></h3>
+                <p class="text-sm text-gray-500">November 2024</p>
+              </div>
+              <div class="group">
+                <h3 class="text-lg font-semibold text-gray-800">Occupational Health and Safety Training</h3>
+                <p class="text-sm text-gray-500">October 2022</p>
+              </div>
             </div>
-        </section>
+          </section>
 
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-primary-blue text-light-text py-8 text-center">
-        <div class="container mx-auto px-6">
-            <div class="mb-4">
-                <a href="https://www.linkedin.com/in/yasin-kuru-mis" target="_blank" class="text-light-text hover:text-primary-burgundy mx-2 text-xl"><i class="fab fa-linkedin"></i></a>
-                <a href="mailto:ymaisisn61@gmail.com" class="text-light-text hover:text-primary-burgundy mx-2 text-xl"><i class="fas fa-envelope"></i></a>
+          <section class="bg-white p-6 rounded-lg shadow-xl fade-in-section" style="animation-delay: 0.8s;">
+            <h2 class="text-2xl font-semibold text-primary-bordeaux mb-6 border-b-2 border-primary-blue pb-2"><i class="fas fa-language mr-2"></i>Languages</h2>
+            <div class="space-y-4">
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-lg font-semibold text-gray-700">English</span>
+                  <span class="text-sm font-medium text-primary-blue">Intermediate</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-primary-blue h-2.5 rounded-full" style="width: 60%"></div>
+                </div>
+              </div>
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-lg font-semibold text-gray-700">Turkish</span>
+                  <span class="text-sm font-medium text-primary-blue">Native</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                  <div class="bg-primary-blue h-2.5 rounded-full" style="width: 100%"></div>
+                </div>
+              </div>
             </div>
-            <p>&copy; 2024 Yasin Kuru. All rights reserved.</p>
-            <p>Designed with <i class="fas fa-heart text-primary-burgundy"></i> using Tailwind CSS</p>
+          </section>
         </div>
-    </footer>
+      </main>
+    </div>
+  </div>
 
-    <script>
-        // Mobile menu toggle
-        const menuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
+  <footer class="bg-primary-blue text-white text-center p-6 mt-12">
+    <p>&copy; 2024 Yasin Kuru. All rights reserved.</p>
+  </footer>
 
-        menuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Smooth scroll for anchor links (if any are added to this page)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                if (this.getAttribute('href') !== "#" && document.querySelector(this.getAttribute('href'))) {
-                    document.querySelector(this.getAttribute('href')).scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
-                if (!mobileMenu.classList.contains('hidden')) {
-                    mobileMenu.classList.add('hidden');
-                }
-            });
-        });
-    </script>
+  <script>
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      const icon = mobileMenuButton.querySelector('i');
+      icon.classList.toggle('fa-bars');
+      icon.classList.toggle('fa-times');
+    });
 
+    // Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function() {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop > lastScrollTop) {
+        navbar.style.top = '-80px'; 
+      } else {
+        navbar.style.top = '0';
+      }
+      lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+    });
+    
+    // Framer Motion for entry animations
+    const motion = window.motion; 
+    document.querySelectorAll('.fade-in-section').forEach((el, index) => {
+        motion.animate(el, { opacity: [0, 1], y: [20, 0] }, { duration: 0.5, delay: el.style.animationDelay ? parseFloat(el.style.animationDelay) : index * 0.1 })
+    });
+  </script>
 </body>
 </html>
